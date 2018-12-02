@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>IFCAD - Principal</title>
+    <title>IFCAD - Novo Professor</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">IFCAD - Principal</a>
+                <a class="navbar-brand" href="index.php">IFCAD - Novo Professor</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -56,14 +56,14 @@
                 
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="contato.html">
-                        <i class="fa fa-fw"><span class="glyphicon glyphicon-envelope"></span></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li>
-                            <a href="contato.html">Contato</a>
-                        </li>
-                    </ul>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="contato.php">
+                            <i class="fa fa-fw"><span class="glyphicon glyphicon-envelope"></span></i> <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="contato.php">Contato</a>
+                            </li>
+                        </ul>
                     <!-- /.dropdown-alerts -->
                 </li>
                 <!-- /.dropdown -->
@@ -77,7 +77,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -101,16 +101,16 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><span class="glyphicon glyphicon-home"></span><i class="fa fa-fw"></i> Principal</a>
+                            <a href="index.php"><span class="glyphicon glyphicon-home"></span><i class="fa fa-fw"></i> Principal</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-fw"><span class=" glyphicon glyphicon-education "></span></i> Universidades<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="nova-universidade.html">Nova Universidade</a>
+                                    <a href="nova-universidade.php">Nova Universidade</a>
                                 </li>
                                 <li>
-                                    <a href="info-universidades.html">Informação</a>
+                                    <a href="info-universidades.php">Informação</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -119,10 +119,10 @@
                             <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-folder-open"></span></i> Departamentos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="novo-departamento.html">Novo Departamento</a>
+                                    <a href="novo-departamento.php">Novo Departamento</a>
                                 </li>
                                 <li>
-                                    <a href="info-departamentos.html">Estatísticas</a>
+                                    <a href="info-departamentos.php">Estatísticas</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -131,10 +131,10 @@
                             <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-pencil"></span></i> Cursos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="novo-curso.html">Novo Curso</a>
+                                    <a href="novo-curso.php">Novo Curso</a>
                                 </li>
                                 <li>
-                                    <a href="info-cursos.html">Informação</a>
+                                    <a href="info-cursos.php">Informação</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -143,13 +143,13 @@
                             <a href="#"><i class="fa fa-fw"><span class="fa-edit"></span></i> Disciplinas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="nova-disciplina.html">Nova Disciplina</a>
+                                    <a href="nova-disciplina.php">Nova Disciplina</a>
                                 </li>
                                 <li>
-                                    <a href="matric-aluno-em-discip.html">Matricular Aluno em Disciplina</a>
+                                    <a href="matric-aluno-em-discip.php">Matricular Aluno em Disciplina</a>
                                 </li>
                                 <li>
-                                    <a href="info-disciplinas.html">Informações</a>
+                                    <a href="info-disciplinas.php">Informações</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -158,7 +158,7 @@
                             <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-briefcase"></span></i> Professores<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="novo-professor.html">Novo Professor</a>
+                                    <a href="novo-professor.php">Novo Professor</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -167,10 +167,13 @@
                             <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-user"></span></i> Alunos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="novo-aluno.html">Novo Aluno</a>
+                                    <a href="novo-aluno.php">Novo Aluno</a>
                                 </li>
                                 <li>
-                                    <a href="matric-aluno-em-discip.html">Matricular Aluno em Disciplina</a>
+                                    <a href="matric-aluno-em-discip.php">Matricular Aluno em Disciplina</a>
+                                </li>
+                                <li>
+                                    <a href="info-alunos.php">Informações Alunos</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -185,28 +188,65 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Principal</h1>
+                    <h1 class="page-header">Novo Professor</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-12">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sagittis erat nec massa iaculis, condimentum gravida massa commodo. 
-                        Praesent elementum risus in dolor sodales, vel rutrum sapien condimentum. Aenean malesuada, est vitae consectetur sollicitudin, 
-                        nunc neque bibendum est, ut blandit tortor augue ut metus. Phasellus ullamcorper est justo, sit amet vehicula nunc malesuada at. 
-                        Morbi elit velit, venenatis et purus nec, commodo porttitor risus. Suspendisse blandit orci ac enim lacinia tincidunt. 
-                        Duis pretium risus non eros consectetur vestibulum
-                    </p>
-                    <p>
-                        Loren ipsum dolor sit amet, consectetur adipiscing elit. Proin luctus eleifend vulputate. Nunc pharetra posuere posuere. 
-                        Pellentesque dignissim hendrerit quam ut vestibulum. Donec egestas arcu eget urna aliquam, sit amet consequat risus vestibulum. 
-                        Praesent vitae facilisis nunc. Pellentesque a mollis augue. Nam eleifend diam et urna dignissim, at malesuada dui pellentesque. 
-                        Sed aliquam lacus ac massa auctor, quis luctus risus malesuada. Donec mattis neque ut velit ultrices, non elementum tellus aliquam. 
-                        Nunc vel mollis magna, quis mattis odio. Vestibulum viverra egestas ultricies. Morbi scelerisque pharetra aliquet.
-                    </p> 
-                </div>
+                    <div class="col-lg-8">
+                            <form role="form">
+                                    <div class="form-group">
+                                            <label for="input-nome">Nome: </label>
+                                            <input id="input-nome" type="text" name="nome" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-email">Email: </label>
+                                            <input id="input-email" type="text" name="email" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-telefone">Telefone: </label>
+                                            <input id="input-telefone" type="tel" name="telefone" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label>Coordenador: </label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="coorddenador">
+                                                </label>
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="select-departamento">Departamento: </label>
+                                            <select id="select-departamento" class="form-control" name="select-departament">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-usuario">Usuário: </label>
+                                            <input id="input-usuario" type="text" name="usuario" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-senha">Senha: </label>
+                                            <input id="input-senha" type="password" name="senha" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label>Administrador: </label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="coordenador">
+                                                </label>
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Salvar">
+                                    </div>
+                            </form>
+                    </div>
             </div>
             <!-- /.row -->
             
