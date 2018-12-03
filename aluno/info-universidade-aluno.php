@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>IFCAD - Blank</title>
+    <title>IFCAD - Universidade Aluno</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">IFCAD - Blank</a>
+                <a class="navbar-brand" href="principal-alunos.php">IFCAD - Universidade Aluno</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -61,7 +62,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
-                                <a href="contato.html">Contato</a>
+                                <a href="../pages/contato.html">Contato</a>
                             </li>
                         </ul>
                     <!-- /.dropdown-alerts -->
@@ -101,28 +102,13 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><span class="glyphicon glyphicon-home"></span><i class="fa fa-fw"></i> Principal</a>
+                            <a href="principal-alunos.php"><span class="glyphicon glyphicon-home"></span><i class="fa fa-fw"></i> Principal</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-fw"><span class=" glyphicon glyphicon-education "></span></i> Universidades<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="nova-universidade.html">Nova Universidade</a>
-                                </li>
-                                <li>
-                                    <a href="info-universidades.html">Informação</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-folder-open"></span></i> Departamentos<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="novo-departamento.html">Novo Departamento</a>
-                                </li>
-                                <li>
-                                    <a href="info-departamentos.html">Estatísticas</a>
+                                    <a href="info-universidades-aluno.php">Informação</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -131,10 +117,7 @@
                             <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-pencil"></span></i> Cursos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="novo-curso.html">Novo Curso</a>
-                                </li>
-                                <li>
-                                    <a href="info-cursos.html">Informação</a>
+                                    <a href="info-cursos-aluno.php">Informação</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -143,37 +126,7 @@
                             <a href="#"><i class="fa fa-fw"><span class="fa-edit"></span></i> Disciplinas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="nova-disciplina.html">Nova Disciplina</a>
-                                </li>
-                                <li>
-                                    <a href="matric-aluno-em-discip.html">Matricular Aluno em Disciplina</a>
-                                </li>
-                                <li>
-                                    <a href="info-disciplinas.html">Informações</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-briefcase"></span></i> Professores<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="novo-professor.html">Novo Professor</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-user"></span></i> Alunos<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="novo-aluno.html">Novo Aluno</a>
-                                </li>
-                                <li>
-                                    <a href="matric-aluno-em-discip.html">Matricular Aluno em Disciplina</a>
-                                </li>
-                                <li>
-                                    <a href="info-alunos.php">Informações Alunos</a>
+                                    <a href="info-disciplinas-aluno.php">Informações</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -188,7 +141,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Blank</h1>
+                    <h1 class="page-header">Universidade Aluno</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
