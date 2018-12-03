@@ -1,5 +1,5 @@
 <?php
-    class Professor{
+    class Aluno{
         private $id;
         private $nome;
         private $matricula;
@@ -11,6 +11,7 @@
         private $bolsista;
         private $usuario;
         private $password;
+        private $email;
 
 
 
@@ -230,6 +231,26 @@
         public function setPassword($password)
         {
                 $this->password = $password;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of email
+         */ 
+        public function getEmail()
+        {
+                return $this->email;
+        }
+
+        /**
+         * Set the value of email
+         *
+         * @return  self
+         */ 
+        public function setEmail($email)
+        {
+                $this->email = $email;
 
                 return $this;
         }

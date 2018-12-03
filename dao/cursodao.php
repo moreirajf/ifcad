@@ -1,9 +1,5 @@
 <?php
 class cursoDAO{   
-    
-    
-    
-    
     public function insert(Curso $curso): int{
         $connection=ConnectionFactory::getConnection();
         $stmt=$connection->prepare("INSERT INTO CURSO (NOME,AREA,VAGAS,IDDEPARTAMENTO) VALUES (?,?,?,?)");
@@ -11,7 +7,9 @@ class cursoDAO{
                             $curso->getArea(),
                             $curso->getVagas(),
                             $curso->getDepartamento()->getId()));
-        return $connection->lastInsertId();
+        $id=$connection->lastInsertId();
+        $connection->close();
+        return $id;    
     }
 
     public function update(Curso $curso){

@@ -11,7 +11,9 @@
                         $disc->getSala(),
                         $disc->getProfessor()->getId(),
                         $disc->getCurso()->getId()));
-            return $connection->lastInsertId();
+                    $id=$connection->lastInsertId();
+                    $connection->close();
+                    return $id;
         }
 
         public function select():array{

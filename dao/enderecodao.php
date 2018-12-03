@@ -10,7 +10,9 @@
                                 $endereco->getEstado(),
                                 $endereco->getCep()
                             ));
-            return $connection->lastInsertId();
+                            $id=$connection->lastInsertId();
+                            $connection->close();
+                            return $id;
         }
 
         public function update(Endereco $endereco){

@@ -5,7 +5,9 @@
             $connection=ConnectionFactory::getConnection();
             $stmt=$connection->prepare("INSERT (NOME,IDENDERECO) INTO INSTITUTO VALUES (?,?)");
             $stmt->execute(array($if->getNome(),$if->getEndereco()->getIdendereco()));
-            return $connection->lastInsertId();
+            $id=$connection->lastInsertId();
+            $connection->close();
+            return $id;
         }
 
         public function select():array{

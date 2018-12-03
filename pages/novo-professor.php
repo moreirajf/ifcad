@@ -195,7 +195,7 @@
             <!-- /.row -->
             <div class="row">
                     <div class="col-lg-8">
-                            <form role="form">
+                            <form role="form" action="../gravabanco/gravaBancoProfessor.php" method="POST">
                                     <div class="form-group">
                                             <label for="input-nome">Nome: </label>
                                             <input id="input-nome" type="text" name="nome" class="form-control">
@@ -212,7 +212,7 @@
                                             <label>Coordenador: </label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="coorddenador">
+                                                    <input type="checkbox" value="true" name="coordenador">
                                                 </label>
                                             </div>
                                     </div>
@@ -238,7 +238,7 @@
                                             <label>Administrador: </label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="coordenador">
+                                                    <input type="checkbox" value="true" name="administrador">
                                                 </label>
                                             </div>
                                     </div>
