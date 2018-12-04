@@ -36,7 +36,10 @@
 </head>
 
 <body>
-<?php require_once("../config/include.php");  ?>
+<?php require_once("../config/include.php");
+        require_once("../control/departamentocontrol.php");
+
+?>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -209,11 +212,7 @@
                                                 <label for="select-universidade">Universidade: </label>
                                                 <select id="select-universidade" class="form-control" name="select-universidade">
                                                     <?php
-                                                        $institutodao=new InstitutoDAO();
-                                                        $array=$institutodao->select();
-                                                        foreach($array as $instituto){
-                                                            echo "<option value=".$instituto->getId().">".$instituto->getNome()."</option>"
-                                                        }
+                                                        getInstitutos();
                                                     ?>
                                                 </select>
                                             </div>

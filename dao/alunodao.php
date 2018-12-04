@@ -3,7 +3,7 @@
         
         public function insert(Aluno $aluno): int{
             $connection=ConnectionFactory::getConnection();
-            $stmt=$connection->prepare("INSERT (MATRICULA,NOME,EMAIL,IDENDERECO,TELEFONE,BOLSISTA,ANOINICIO,IDCURSO,SEMESTRE,USUARIO,SENHA) INTO ALUNO VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+            $stmt=$connection->prepare("INSERT INTO ALUNO VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 
             $stmt->execute(array($aluno->getMatricula(),
                                 $aluno->getNome(),
@@ -19,7 +19,6 @@
                             ));
 
             $id=$connection->lastInsertId();
-            $connection->close();
             return $id;
         }
 

@@ -8,7 +8,6 @@ class cursoDAO{
                             $curso->getVagas(),
                             $curso->getDepartamento()->getId()));
         $id=$connection->lastInsertId();
-        $connection->close();
         return $id;    
     }
 
@@ -38,7 +37,7 @@ class cursoDAO{
         $stmt = $connection->prepare("SELECT * FROM CURSO WHERE IDCURSO=?");
         $stmt->execute([$id]); 
         $row = $stmt->fetch();
-        $curso=Curso();
+        $curso=new Curso();
         $curso->setNome($row["NOME"]);
         $curso->setArea($row["AREA"]);
         $curso->setVagas($row["VAGAS"]);
@@ -53,14 +52,14 @@ class cursoDAO{
         $stmt = $connection->query("SELECT * FROM CURSO");
         $cursos=array();
         while ($row = $stmt->fetch()) {
-            $curso=Curso();
+            $curso=new Curso();
             $curso->setNome($row["NOME"]);
             $curso->setArea($row["AREA"]);
             $curso->setTelefone($row["VAGAS"]);
             $curso->setId($row["IDCURSO"]);
             $departamento=departamentoDAO::getById($row["IDDEPARTAMENTO"]);
             $curso->setDepartamento($departamento);
-            $cursos->push($curso);
+            array_push($cursos,$curso);
         }
         return $cursos;
     }

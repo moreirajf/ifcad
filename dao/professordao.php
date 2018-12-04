@@ -15,7 +15,6 @@
                             ));
 
             $id=$connection->lastInsertId();
-            $connection->close();
             return $id;
         }
 

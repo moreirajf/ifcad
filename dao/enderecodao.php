@@ -2,7 +2,7 @@
     class enderecoDAO{   
         public function insert(Endereco $endereco): int{
             $connection=ConnectionFactory::getConnection();
-            $stmt=$connection->prepare("INSERT (RUA,NUMERO,BAIRRO,CIDADE,ESTADO,CEP) INTO ENDERECO VALUES (?,?,?,?,?,?)");
+            $stmt=$connection->prepare("INSERT INTO ENDERECO(RUA,NUMERO,BAIRRO,CIDADE,ESTADO,CEP) VALUES (?,?,?,?,?,?)");            
             $stmt->execute(array($endereco->getRua(),
                                 $endereco->getNumero(),
                                 $endereco->getBairro(),
@@ -11,7 +11,6 @@
                                 $endereco->getCep()
                             ));
                             $id=$connection->lastInsertId();
-                            $connection->close();
                             return $id;
         }
 
@@ -29,8 +28,6 @@
         }
         
 
-
-
         public function delete(Endereco $endereco){
             $connection=ConnectionFactory::getConnection();
             $stmt=$connection->prepare("DELETE FROM ENDERECO WHERE IDENDERECO=?");
@@ -44,7 +41,7 @@
             $stmt = $connection->prepare("SELECT * FROM ENDERECO WHERE IDENDERECO=?"); 
             $stmt->execute([$id]); 
             $end = $stmt->fetch();
-            $endereco=Endereco();
+            $endereco=new Endereco();
             $endereco->setRua($end["RUA"]);
             $endereco->setNumero($end["NUMERO"]);
             $endereco->setBairro($end["BAIRRO"]);
