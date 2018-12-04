@@ -216,7 +216,7 @@
                                 </div>
                                 <div class="form-group">
                                         <label for="input-vagas">Vagas: </label>
-                                        <input id="input-vagas" type="number" name="vagas" class="form-control">
+                                        <input id="input-vagas" type="number" name="vagas" class="form-control" value="10">
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" value="Salvar">
