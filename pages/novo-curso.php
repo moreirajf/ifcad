@@ -36,7 +36,10 @@
 </head>
 
 <body>
-
+    <?php
+        require_once "../config/include.php";
+        require_once "../control/cursocontrol.php";
+    ?>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -203,11 +206,10 @@
                                 <div class="form-group">
                                         <label for="select-departamento">Departamento: </label>
                                         <select id="select-departamento" class="form-control" name="select-departament">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                            
+                                            <?php
+                                                getDepartamentos();
+                                            ?>
                                         </select>
                                 </div>
                                 <div class="form-group">
