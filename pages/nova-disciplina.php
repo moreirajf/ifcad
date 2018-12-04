@@ -227,8 +227,14 @@
                                             <input id="input-sala" type="number" name="sala" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                            <label for="input-professor">Professor: </label>
-                                            <input id="input-professor" type="text" name="professor" class="form-control">
+                                            <label for="select-professor">Professor: </label>
+                                            <select id="select-professor" class="form-control" name="select-professor">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" value="Salvar">
