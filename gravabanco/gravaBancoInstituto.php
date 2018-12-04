@@ -2,6 +2,8 @@
     /**
      * endereco
      */
+
+
     $endereco = new Endereco();
     $endereco->setRua($_POST["rua"]);
     $endereco->setNumero($_POST["numero"]);
@@ -24,5 +26,5 @@
     $envia = new InstitutoDAO();
     $idInstituto = $envia->insert($instituto);
     $instituto->setId($idInstituto);
-
+    header("Location: ../pages/info-universidade.php");
 ?>

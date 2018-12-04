@@ -36,7 +36,7 @@
 </head>
 
 <body>
-
+<?php require_once("../config/include.php");  ?>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -207,12 +207,14 @@
                                         </div>
                                         <div class="form-group">
                                                 <label for="select-universidade">Universidade: </label>
-                                                <select id="select-universidade" class="form-control" name="select-universit">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
+                                                <select id="select-universidade" class="form-control" name="select-universidade">
+                                                    <?php
+                                                        $institutodao=new InstitutoDAO();
+                                                        $array=$institutodao->select();
+                                                        foreach($array as $instituto){
+                                                            echo "<option value=".$instituto->getId().">".$instituto->getNome()."</option>"
+                                                        }
+                                                    ?>
                                                 </select>
                                             </div>
                                         <div class="form-group">

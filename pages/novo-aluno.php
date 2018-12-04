@@ -252,7 +252,7 @@
                                     </div>
                                     <div class="form-group">
                                             <label for="select-semestre">Semestre: </label>
-                                            <select id="select-semestre" class="form-control" name="select-semestr">
+                                            <select id="select-semestre" class="form-control" name="select-semestre">
                                                 <option>Semestre 1</option>
                                                 <option>Semestre 2</option>
                                                 <option>Semestre 3</option>
@@ -264,7 +264,7 @@
                                             <label>Bolsista: </label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="bolsista">
+                                                    <input type="checkbox" value="true" name="bolsista">
                                                 </label>
                                             </div>
                                     </div>

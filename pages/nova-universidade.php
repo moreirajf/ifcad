@@ -196,7 +196,7 @@
             <div class="row">
                 <div class="col-lg-8">
                         <div class="panel panel-default">
-                            <form role="form">
+                            <form role="form" action="../gravabanco/gravaBancoInstituto.php" method="POST">
                                     <div class="form-group">
                                             <label for="input-nome">Nome: </label>
                                             <input id="input-nome" type="text" name="nome" class="form-control">

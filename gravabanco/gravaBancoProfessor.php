@@ -5,12 +5,12 @@
 
 
     $endereco = new Endereco();
-    $endereco->setRua();
-    $endereco->setNumero();
-    $endereco->setBairro();
-    $endereco->setCidade();
-    $endereco->setEstado();
-    $endereco->setCep();
+    $endereco->setRua($_POST["rua"]);
+    $endereco->setNumero($_POST["numero"]);
+    $endereco->setBairro($_POST["bairro"]);
+    $endereco->setCidade($_POST["cidade"]);
+    $endereco->setEstado($_POST["estado"]);
+    $endereco->setCep($_POST["cep"]);
 
     $envia = new EnderecoDAO();
     $idEndereco = $envia->insert($endereco);
@@ -20,13 +20,13 @@
      * professor
      */
     $professor= new Alunos();
-    $professor->setNome();
+    $professor->setNome($_POST["nome"]);
     $professor->setEndereco($endereco);
-    $professor->setTelefone();
-    $professor->setCoordenador();
-    $professor->setAdministrador();
-    $professor->setUsuario();
-    $professor->setPassword();
+    $professor->setTelefone($_POST["telefone"]);
+    $professor->setCoordenador($_POST["coordenador"]);
+    $professor->setAdministrador($_POST["administrador"]);
+    $professor->setUsuario($_POST["usuario"]);
+    $professor->setPassword($_POST["senha"]);
     
     $envia = new ProfessorDAO();
     $idProfessor = $envia->insert($professor);
