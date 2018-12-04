@@ -201,6 +201,30 @@
                                             <input id="input-nome" type="text" name="nome" class="form-control">
                                     </div>
                                     <div class="form-group">
+                                            <label for="input-rua">Rua: </label>
+                                            <input id="input-rua" type="text" name="rua" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-numero">Número: </label>
+                                            <input id="input-numero" type="text" name="numero" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-bairro">Bairro: </label>
+                                            <input id="input-bairro" type="text" name="bairro" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-cidade">Cidade: </label>
+                                            <input id="input-cidade" type="text" name="cidade" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-estado">Estado: </label>
+                                            <input id="input-estado" type="text" name="estado" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-cep">CEP: </label>
+                                            <input id="input-cep" type="text" name="cep" class="form-control">
+                                    </div>
+                                    <div class="form-group">
                                             <label for="input-email">Email: </label>
                                             <input id="input-email" type="text" name="email" class="form-control">
                                     </div>

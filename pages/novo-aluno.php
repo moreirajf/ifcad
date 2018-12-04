@@ -213,8 +213,28 @@
                                             <input id="input-telefone" type="tel" name="telefone" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                            <label for="input-endereco">Endereço: </label>
-                                            <input id="input-endereco" type="text" name="endereco" class="form-control">
+                                            <label for="input-rua">Rua: </label>
+                                            <input id="input-rua" type="text" name="rua" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-numero">Número: </label>
+                                            <input id="input-numero" type="text" name="numero" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-bairro">Bairro: </label>
+                                            <input id="input-bairro" type="text" name="bairro" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-cidade">Cidade: </label>
+                                            <input id="input-cidade" type="text" name="cidade" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-estado">Estado: </label>
+                                            <input id="input-estado" type="text" name="estado" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-cep">CEP: </label>
+                                            <input id="input-cep" type="text" name="cep" class="form-control">
                                     </div>
                                     <div class="form-group">
                                             <label for="input-anoinic">Ano de Inicio:</label>
@@ -255,15 +275,7 @@
                                     <div class="form-group">
                                             <label for="input-senha">Senha: </label>
                                             <input id="input-senha" type="password" name="senha" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                            <label>Administrador: </label>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="coorddenador">
-                                                </label>
-                                            </div>
-                                    </div>
+                                     </div>
                                     <div class="form-group">
                                         <input type="submit" value="Salvar">
                                     </div>
