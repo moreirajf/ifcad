@@ -35,6 +35,21 @@
             $stmt->execute(array($if->getId()));
         }
 
+
+
+        public static function getByID($id):array{
+            $connection=ConnectionFactory::getConnection();
+            $stmt = $connection->query("SELECT * FROM INSTITUTO WHERE IDINSTITUTO=?");
+            $row = $stmt->execute(array($id));
+            $instituto=new Instituto();
+            $instituto->setNome($row["NOME"]);
+            $endereco=enderecoDAO::getById($row["IDENDERECO"]);
+            $instituto->setEndereco($endereco);
+            return $instituto;
+        }
+
+
+
     }
 
     
