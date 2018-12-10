@@ -20,8 +20,7 @@
     /**
      * professor
      */
-    echo "oi";
-    echo "mae";
+
      $dep=new Departamento();
      $dep->setId($_POST["select-departamento"]);
     $professor= new Professor();
@@ -41,5 +40,6 @@
     $professor->setId($idProfessor);
     echo "oi";
     echo "mae";
+    header("Location: ../pages/index.php")
     
 ?>

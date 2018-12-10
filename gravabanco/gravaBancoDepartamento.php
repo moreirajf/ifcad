@@ -14,6 +14,6 @@
     $envia = new DepartamentoDAO();
     $idDepartamento = $envia->insert($departamento);
     $departamento->setId($idDepartamento);
-    //header("Location: ../pages/info-departamentos.php");
+    header("Location: ../pages/info-departamentos.php");
 
 ?>

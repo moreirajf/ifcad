@@ -127,7 +127,7 @@
                                         <th>Bairro</th>
                                         <th>Cidade</th>
                                         <th>Estado</th>
-                                        <th>CEP</th>
+                                        <th>Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -142,7 +142,7 @@
                                             <td><?php echo $meuAlunos[$i]->getCurso()->getNome(); ?></td>
                                             <td><?php echo $meuAlunos[$i]->getSemestre(); ?></td>
                                             <td><?php if($meuAlunos[$i]->getBolsista()==1)echo "SIM";
-                                                else echo "NAO";
+                                                else echo "NÃO";
                                             ?></td>
                                             <td><?php echo $meuAlunos[$i]->getUsuario(); ?></td>
 

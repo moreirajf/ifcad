@@ -67,6 +67,6 @@
     }
     
     }
-    //header("Location: ../pages/info-alunos.php");
+    header("Location: ../pages/info-alunos.php");
     
 ?>
