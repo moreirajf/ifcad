@@ -36,6 +36,10 @@
 </head>
 
 <body>
+    <?php
+        require_once "../config/include.php";
+       
+    ?>
 
     <div id="wrapper">
 
