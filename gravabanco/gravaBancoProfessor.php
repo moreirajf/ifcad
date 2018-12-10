@@ -20,8 +20,6 @@
 
 
 
-
-
     $endereco = new Endereco();
     $endereco->setRua($_POST["rua"]);
     $endereco->setNumero(intval($_POST["numero"]));
@@ -54,12 +52,6 @@
 
     $envia = new ProfessorDAO();
     
-
-
-
-
-
-
 
     if(isset($_POST["id"])){
         $professor->setId($_POST["id"]);

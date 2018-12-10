@@ -89,31 +89,51 @@
             <div class="row">
                 <div class="col-lg-8">
                         <form role="form" method="POST" action="../gravabanco/gravaBancoCurso.php">
+
+
+                         <?php
+                                    if(isset($_POST["id"])){
+                                        $id=$_POST["id"];
+                                        echo "<input type='hidden' value='$id' name='id'>";
+                                    }
+                                    
+                                    ?>
                                 <div class="form-group">
                                         <label for="input-nome">Nome: </label>
-                                        <input id="input-nome" type="text" name="nome" class="form-control">
+                                        <input id="input-nome" type="text" name="nome" class="form-control" <?php if(isset($curso))echo "value='".$curso->getNome()."'";?>>
                                 </div>
                                 <div class="form-group">
                                         <label for="select-departamento">Departamento: </label>
                                         <select id="select-departamento" class="form-control" name="select-departamento">
                                             
                                             <?php
-                                                getDepartamentos();
+                                                getDepartamentos($curso);
                                             ?>
                                         </select>
                                 </div>
                                 <div class="form-group">
                                         <label for="input-area">Area: </label>
-                                        <input id="input-area" type="text" name="area" class="form-control">
+                                        <input id="input-area" type="text" name="area" class="form-control"<?php if(isset($curso))echo "value='".$curso->getArea()."'";?>>
                                 </div>
                                 <div class="form-group">
                                         <label for="input-vagas">Vagas: </label>
-                                        <input id="input-vagas" type="number" name="vagas" class="form-control" value="10">
+                                        <input id="input-vagas" type="number" name="vagas" class="form-control" <?php if(isset($curso))echo "value='".$curso->getNome()."'"; else echo 'value="10"';?>>
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" value="Salvar">
                                 </div>
                         </form>
+                        <?php if(isset($_POST["id"])){
+                                        $id=$_POST["id"];
+                                    ?>
+                            <form action="../gravabanco/gravaBancoCurso.php" method="POST">
+                                <div class="form-group">
+                                        <input type="hidden" value="<?php echo $id;?>" name='id'>
+                                        <input type="hidden" value='remove' name='action'>
+                                        <input type="submit" value="Excluir">
+                                    </div>
+                                </form>
+                                <?php } ?>
                 </div>
             </div>
             <!-- /.row -->
