@@ -108,7 +108,7 @@
                             <a href="#"><i class="fa fa-fw"><span class=" glyphicon glyphicon-education "></span></i> Universidades<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="info-universidades-aluno.php">Informação</a>
+                                    <a href="info-universidade-aluno.php">Informação</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -108,7 +108,7 @@
                             <a href="#"><i class="fa fa-fw"><span class=" glyphicon glyphicon-education "></span></i> Universidades<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="../pages/info-universidades.php">Informação</a>
+                                    <a href="../pages/info-universidade.php">Informação</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -126,7 +126,7 @@
                             <a href="#"><i class="fa fa-fw"><span class="fa-edit"></span></i> Disciplinas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="../pages/info-universidades.php">Informações</a>
+                                    <a href="info-disciplinas-aluno.php">Informações</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
