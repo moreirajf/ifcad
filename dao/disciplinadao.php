@@ -50,7 +50,6 @@
                 $result = $date->format('H:i');
                 $disciplina->setHorario($result); 
                 $disciplina->setSala($row["SALA"]); 
-                //FALTA PEGAR CURSO
                 
                 $disciplina->setCurso(cursoDAO::getById($row["IDCURSO"]));
                 $disciplina->setProfessor($prof);
