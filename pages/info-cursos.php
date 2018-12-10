@@ -87,6 +87,38 @@
                 <div class="col-lg-12">
                     Informaçoes sobre os Cursos
                 </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <?php  $meusCursos = (new cursoDao())->select(); ?>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Departamento</th>
+                                <th>Área</th>
+                                <th>Vagas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php for ($i = 0; $i < count($meusCursos); $i++) { ?>
+                                <tr class="odd gradeX">
+                                    <form action="novo-curso.php" method="post">
+                                        <input type="hidden" value=<?php echo $meusCursos[$i]->getId();?> name="id">
+                                        <td><?php echo $meusCursos[$i]->getNome(); ?></td>
+                                        <td><?php echo $meusCursos[$i]->getDepartamento(); ?></td>
+                                        <td><?php echo $meusCursos[$i]->getArea();; ?></td>
+                                        <td><?php echo $meusCursos[$i]->getVagas(); ?></td>
+                                        <td>
+                                            <input type="submit" value="EDITAR">
+                                        </td>
+                                    </form>
+                                </tr>
+                            <?php } ?>                                   
+                        </tbody>
+                    </table>
+                <!-- /.table-responsive -->
+                </div>
+
             </div>
             <!-- /.row -->
             

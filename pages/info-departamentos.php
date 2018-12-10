@@ -80,6 +80,35 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">Info Departamentos</h1>
                 </div>
+                <div class="panel-body">
+                    <?php  $meusDepartamentos = (new departamentoDao())->select(); ?>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Telefone</th>
+                                <th>Universidade</th>
+                                <th>Vagas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php for ($i = 0; $i < count($meusDepartamentos); $i++) { ?>
+                                <tr class="odd gradeX">
+                                    <form action="novo-curso.php" method="post">
+                                        <input type="hidden" value=<?php echo $meusDepartamentos[$i]->getId();?> name="id">
+                                        <td><?php echo $meusCursos[$i]->getNome(); ?></td>
+                                        <td><?php echo $meusCursos[$i]->getTelefone(); ?></td>
+                                        <td><?php echo $meusCursos[$i]->getInstituto();; ?></td>
+                                        <td>
+                                            <input type="submit" value="EDITAR">
+                                        </td>
+                                    </form>
+                                </tr>
+                            <?php } ?>                                   
+                        </tbody>
+                    </table>
+                <!-- /.table-responsive -->
+                </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
