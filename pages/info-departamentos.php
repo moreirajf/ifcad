@@ -97,11 +97,11 @@
                         <tbody>
                             <?php for ($i = 0; $i < count($meusDepartamentos); $i++) { ?>
                                 <tr class="odd gradeX">
-                                    <form action="novo-curso.php" method="post">
+                                    <form action="novo-departamento.php" method="post">
                                         <input type="hidden" value=<?php echo $meusDepartamentos[$i]->getId();?> name="id">
                                         <td><?php echo $meusCursos[$i]->getNome(); ?></td>
                                         <td><?php echo $meusCursos[$i]->getTelefone(); ?></td>
-                                        <td><?php echo $meusCursos[$i]->getInstituto();; ?></td>
+                                        <td><?php echo $meusCursos[$i]->getInstituto()->getNome(); ?></td>
                                         <td>
                                             <input type="submit" value="EDITAR">
                                         </td>

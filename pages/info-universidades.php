@@ -82,6 +82,42 @@
                     <h1 class="page-header">Info Universidades</h1>
                 </div>
                 <!-- /.col-lg-12 -->
+                <div class="panel-body">
+                    <?php  $meusInstitutos = (new institudoDao())->select(); ?>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Rua</th>
+                                <th>Numero</th>
+                                <th>Bairro</th>
+                                <th>Cidade</th>
+                                <th>Estado</th>
+                                <th>CEP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php for ($i = 0; $i < count($meusInstitutos); $i++) { ?>
+                                <tr class="odd gradeX">
+                                    <form action="nova-universidade.php" method="post">
+                                        <input type="hidden" value=<?php echo $meusInstitutos[$i]->getId();?> name="id">
+                                        <td><?php echo $meusInstitutos[$i]->getNome(); ?></td>
+                                        <td><?php echo $meusInstitutos[$i]->getEndereco()->getRua(); ?></td>
+                                        <td><?php echo $meusInstitutos[$i]->getEndereco()->getNumero(); ?></td>
+                                        <td><?php echo $meusInstitutos[$i]->getEndereco()->getBairro(); ?></td>
+                                        <td><?php echo $meusInstitutos[$i]->getEndereco()->getCidade(); ?></td>
+                                        <td><?php echo $meusInstitutos[$i]->getEndereco()->getEstado(); ?></td>
+                                        <td><?php echo $meusInstitutos[$i]->getEndereco()->getCep(); ?></td>
+                                        <td>
+                                            <input type="submit" value="EDITAR">
+                                        </td>
+                                    </form>
+                                </tr>
+                            <?php } ?>                                   
+                        </tbody>
+                    </table>
+                <!-- /.table-responsive -->
+                </div>
             </div>
             <!-- /.row -->
             <div class="row">

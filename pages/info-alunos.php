@@ -131,13 +131,13 @@
                                                 else echo "NÃO";
                                             ?></td>
                                             <td><?php echo $meuAlunos[$i]->getUsuario(); ?></td>
-
+                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getCep(); ?></td>
                                             <td><?php echo $meuAlunos[$i]->getEndereco()->getRua(); ?></td>
                                             <td><?php echo $meuAlunos[$i]->getEndereco()->getNumero(); ?></td>
                                             <td><?php echo $meuAlunos[$i]->getEndereco()->getBairro(); ?></td>
                                             <td><?php echo $meuAlunos[$i]->getEndereco()->getCidade(); ?></td>
                                             <td><?php echo $meuAlunos[$i]->getEndereco()->getEstado(); ?></td>
-                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getCep(); ?></td>
+                                            
                                             <td>
                                             <input type="submit" value="EDITAR">
                                             </td>

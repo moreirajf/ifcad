@@ -36,6 +36,9 @@
 </head>
 
 <body>
+    <?php
+        require_once "../config/include.php";
+    ?>
 
     <div id="wrapper">
 
@@ -81,6 +84,45 @@
                     <h1 class="page-header">Info Disciplinas</h1>
                 </div>
                 <!-- /.col-lg-12 -->
+                <div class="panel-body">
+                    <?php  $minhasDisciplinas = (new disciplinaDao())->select(); ?>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th>Carga Horária</th>
+                                <th>Curso</th>
+                                <th>Horário</th>
+                                <th>Sala</th>
+                                <th>Professor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php for ($i = 0; $i < count($minhasDisciplinas); $i++) { ?>
+                                <tr class="odd gradeX">
+                                    <form action="nova-disciplina.php" method="post">
+                                        <input type="hidden" value=<?php echo $minhasDisciplinas[$i]->getId();?> name="id">
+                                        <td><?php echo $minhasDisciplinas[$i]->getNome(); ?></td>
+                                        <td><?php echo $minhasDisciplinas[$i]->getDescricao(); ?></td>
+                                        <td><?php echo $minhasDisciplinas[$i]->getCargahoraria();; ?></td>
+                                        <td><?php echo $minhasDisciplinas[$i]->getCurso(); ?></td>
+                                        <td><?php echo $minhasDisciplinas[$i]->getHorario(); ?></td>
+                                        <td><?php echo $minhasDisciplinas[$i]->getSala(); ?></td>
+                                        <td><?php echo $minhasDisciplinas[$i]->getProfessor()->getNome(); ?></td>
+                                        <td>
+                                            <input type="submit" value="EDITAR">
+                                        </td>
+                                    </form>
+                                </tr>
+                            <?php } ?>                                   
+                        </tbody>
+                    </table>
+                <!-- /.table-responsive -->
+                </div>
+
+
+
             </div>
             <!-- /.row -->
             <div class="row">
