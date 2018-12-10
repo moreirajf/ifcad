@@ -1,12 +1,11 @@
 <?php
-class cursoDAO{   
-    public function insert(Curso $curso): int{
+class cursaDisciplinaDAO{   
+    public function insert($aluno,$disciplina): int{
         $connection=ConnectionFactory::getConnection();
-        $stmt=$connection->prepare("INSERT INTO CURSO (NOME,AREA,VAGAS,IDDEPARTAMENTO) VALUES (?,?,?,?)");
-        $stmt->execute(array($curso->getNome(),
-                            $curso->getArea(),
-                            $curso->getVagas(),
-                            $curso->getDepartamento()->getId()));
+        $stmt=$connection->prepare("INSERT INTO CURSA_DISCIPLINA (IDALUNO,IDDISCIPLINA) VALUES (?,?)");
+        $stmt->execute(array($aluno,
+                            $disciplina));
+        $stmt->debugDumpParams();
         $id=$connection->lastInsertId();
         return $id;    
     }

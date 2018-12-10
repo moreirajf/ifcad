@@ -36,7 +36,10 @@
 </head>
 
 <body>
-
+<?php
+        require_once "../config/include.php";
+        require_once "../control/alunocontrol.php";
+    ?>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -105,11 +108,10 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <?  $meuAlunos = (new alunosDao)->select(); ?>
+                            <?php  $meuAlunos = (new alunoDao())->select(); ?>
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
                                         <th>Nome</th>
                                         <th>Matricula</th>
                                         <th>Telefone</th>
@@ -129,26 +131,33 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                     <? for ($i = 0; i < sizeOf . $meuAlunos; $i++) { ?>
+                                     <?php for ($i = 0; $i < count($meuAlunos); $i++) { ?>
                                         <tr class="odd gradeX">
-                                            <td><? $meuAlunos[$i]->getId(); ?></td>
-                                            <td><? $meuAlunos[$i]->getNome(); ?></td>
-                                            <td><? $meuAlunos[$i]->getMatricula(); ?></td>
-                                            <td><? $meuAlunos[$i]->getTelefone();; ?></td>
-                                            <td><? $meuAlunos[$i]->getAnoinicio(); ?></td>
-                                            <td><? $meuAlunos[$i]->getCurso(); ?></td>
-                                            <td><? $meuAlunos[$i]->getSemestre(); ?></td>
-                                            <td><? $meuAlunos[$i]->getBolsista(); ?></td>
-                                            <td><? $meuAlunos[$i]->getUsuario(); ?></td>
+                                            <form action="novo-aluno.php" method="post">
+                                            <input type="hidden" value=<?php echo $meuAlunos[$i]->getId();?> name="id">
+                                            <td><?php echo $meuAlunos[$i]->getNome(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getMatricula(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getTelefone();; ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getAnoinicio(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getCurso()->getNome(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getSemestre(); ?></td>
+                                            <td><?php if($meuAlunos[$i]->getBolsista()==1)echo "SIM";
+                                                else echo "NAO";
+                                            ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getUsuario(); ?></td>
 
-                                            <td><? $meuAlunos[$i]->getEndereco->getRua(); ?></td>
-                                            <td><? $meuAlunos[$i]->getEndereco->getNumero(); ?></td>
-                                            <td><? $meuAlunos[$i]->getEndereco->getBairro(); ?></td>
-                                            <td><? $meuAlunos[$i]->getEndereco->getCidade(); ?></td>
-                                            <td><? $meuAlunos[$i]->getEndereco->getEstado(); ?></td>
-                                            <td><? $meuAlunos[$i]->getEndereco->getCep(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getRua(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getNumero(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getBairro(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getCidade(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getEstado(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getCep(); ?></td>
+                                            <td>
+                                            <input type="submit" value="EDITAR">
+                                            </td>
+                                            </form>
                                         </tr>
-                                        <?} ?>                                   
+                                        <?php } ?>                                   
                                 </tbody>
                             </table>
                             <!-- /.table-responsive -->

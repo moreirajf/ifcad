@@ -15,6 +15,7 @@
             $institutos=array();
             while ($row = $stmt->fetch()) {
                 $instituto=new Instituto();
+                $instituto->setId($row["IDINSTITUTO"]); 
                 $instituto->setNome($row["NOME"]);
                 $endereco=enderecoDAO::getById($row["IDENDERECO"]);
                 $instituto->setEndereco($endereco);
@@ -37,10 +38,11 @@
 
 
 
-        public static function getByID($id):array{
+        public static function getByID($id):Instituto{
             $connection=ConnectionFactory::getConnection();
-            $stmt = $connection->query("SELECT * FROM INSTITUTO WHERE IDINSTITUTO=?");
-            $row = $stmt->execute(array($id));
+            $stmt = $connection->prepare("SELECT * FROM INSTITUTO WHERE IDINSTITUTO=?");
+            $stmt->execute(array($id));
+            $row = $stmt->fetch();
             $instituto=new Instituto();
             $instituto->setNome($row["NOME"]);
             $endereco=enderecoDAO::getById($row["IDENDERECO"]);

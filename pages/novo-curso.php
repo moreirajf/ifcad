@@ -102,14 +102,14 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-8">
-                        <form role="form">
+                        <form role="form" method="POST" action="../gravabanco/gravaBancoCurso.php">
                                 <div class="form-group">
                                         <label for="input-nome">Nome: </label>
                                         <input id="input-nome" type="text" name="nome" class="form-control">
                                 </div>
                                 <div class="form-group">
                                         <label for="select-departamento">Departamento: </label>
-                                        <select id="select-departamento" class="form-control" name="select-departament">
+                                        <select id="select-departamento" class="form-control" name="select-departamento">
                                             
                                             <?php
                                                 getDepartamentos();

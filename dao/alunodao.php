@@ -3,7 +3,7 @@
         
         public function insert(Aluno $aluno): int{
             $connection=ConnectionFactory::getConnection();
-            $stmt=$connection->prepare("INSERT INTO ALUNO VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+            $stmt=$connection->prepare("INSERT INTO ALUNO VALUES (null,?,?,?,?,?,?,?,?,?,?,?)");
 
             $stmt->execute(array($aluno->getMatricula(),
                                 $aluno->getNome(),
@@ -17,10 +17,40 @@
                                 $aluno->getUsuario(),
                                 $aluno->getPassword()
                             ));
-
             $id=$connection->lastInsertId();
             return $id;
         }
+        
+
+
+        public function update(Aluno $aluno){
+            $connection=ConnectionFactory::getConnection();
+            $stmt=$connection->prepare("UPDATE ALUNO SET MATRICULA=?,NOME=?,EMAIL=?,TELEFONE=?,BOLSISTA=?,ANOINICIO=?,IDCURSO=?,SEMESTRE=?,USUARIO=?,SENHA=? WHERE IDALUNO=?");
+
+            $stmt->execute(array($aluno->getMatricula(),
+                                $aluno->getNome(),
+                                $aluno->getEmail(),
+                                $aluno->getTelefone(),
+                                $aluno->getBolsista(),
+                                $aluno->getAnoinicio(),
+                                $aluno->getCurso()->getId(),
+                                $aluno->getSemestre(),
+                                $aluno->getUsuario(),
+                                $aluno->getPassword(),
+                                $aluno->getId()
+                            ));
+                            $stmt->debugDumpParams();
+        
+        }
+
+
+
+        public function delete(Aluno $endereco){
+            $connection=ConnectionFactory::getConnection();
+            $stmt=$connection->prepare("DELETE FROM ALUNO WHERE IDALUNO=?");
+            $stmt->execute(array($endereco->getId()));
+        }
+
 
         public static function getById($id):Aluno{
             $connection=ConnectionFactory::getConnection();
@@ -52,7 +82,7 @@
             $alunos=array();
             while ($row = $stmt->fetch()) {
                 $aluno=new Aluno();
-                $aluno->setId($id);
+                $aluno->setId($row["IDALUNO"]);
                 $aluno->setNome($row["NOME"]);
                 $aluno->setEmail($row["EMAIL"]);
                 $aluno->setTelefone($row["TELEFONE"]);
@@ -66,7 +96,7 @@
                 $departamento=cursoDAO::getById($row["IDCURSO"]);
                 $aluno->setEndereco($endereco);
                 $aluno->setCurso($departamento);
-                $alunos->push($aluno);
+                array_push($alunos,$aluno);
             }
             return $alunos;
         }

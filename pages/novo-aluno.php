@@ -36,7 +36,10 @@
 </head>
 
 <body>
-
+<?php
+        require_once "../config/include.php";
+        require_once "../control/alunocontrol.php";
+    ?>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -51,7 +54,7 @@
                 <a class="navbar-brand" href="index.php">IFCAD - Novo Aluno</a>
             </div>
             <!-- /.navbar-header -->
-
+            
             <ul class="nav navbar-top-links navbar-right">
                 
                 <!-- /.dropdown -->
@@ -99,91 +102,107 @@
             <!-- /.row -->
             <div class="row">
                     <div class="col-lg-8">
-                            <form role="form">
+                            <form role="form" method="post" action="../gravabanco/gravaBancoAlunos.php">
+
+
+                                    <?php
+                                    if(isset($_POST["id"])){
+                                        $id=$_POST["id"];
+                                        echo "<input type='hidden' value='$id' name='id'>";
+                                    }
+                                    
+                                    ?>
                                     <div class="form-group">
                                             <label for="input-matricula">Matrícula: </label>
-                                            <input id="input-matricula" type="text" name="matricula" class="form-control">
+                                            <input id="input-matricula" type="text" name="matricula" class="form-control" value="<?php testVal($aluno->getMatricula());?>">
                                     </div>
                                     <div class="form-group">
                                             <label for="input-nome">Nome: </label>
-                                            <input id="input-nome" type="text" name="nome" class="form-control">
+                                            <input id="input-nome" type="text" name="nome" class="form-control" value="<?php testVal($aluno->getNome());?>">
                                     </div>
                                     <div class="form-group">
                                             <label for="input-email">Email: </label>
-                                            <input id="input-email" type="text" name="email" class="form-control">
+                                            <input id="input-email" type="text" name="email" class="form-control" value="<?php testVal($aluno->getEmail());?>">
                                     </div>
                                     <div class="form-group">
                                             <label for="input-telefone">Telefone: </label>
-                                            <input id="input-telefone" type="tel" name="telefone" class="form-control">
+                                            <input id="input-telefone" type="tel" name="telefone" class="form-control" value="<?php testVal($aluno->getTelefone());?>">
                                     </div>
                                     <div class="form-group">
                                             <label for="input-rua">Rua: </label>
-                                            <input id="input-rua" type="text" name="rua" class="form-control">
+                                            <input id="input-rua" type="text" name="rua" class="form-control" value="<?php testVal($aluno->getEndereco()->getRua());?>">
                                     </div>
                                     <div class="form-group">
                                             <label for="input-numero">Número: </label>
-                                            <input id="input-numero" type="text" name="numero" class="form-control">
+                                            <input id="input-numero" type="text" name="numero" class="form-control" value="<?php testVal($aluno->getEndereco()->getNumero());?>">
                                     </div>
                                     <div class="form-group">
                                             <label for="input-bairro">Bairro: </label>
-                                            <input id="input-bairro" type="text" name="bairro" class="form-control">
+                                            <input id="input-bairro" type="text" name="bairro" class="form-control" value="<?php testVal($aluno->getEndereco()->getBairro());?>">
                                     </div>
                                     <div class="form-group">
                                             <label for="input-cidade">Cidade: </label>
-                                            <input id="input-cidade" type="text" name="cidade" class="form-control">
+                                            <input id="input-cidade" type="text" name="cidade" class="form-control" value="<?php testVal($aluno->getEndereco()->getCidade());?>">
                                     </div>
                                     <div class="form-group">
                                             <label for="input-estado">Estado: </label>
-                                            <input id="input-estado" type="text" name="estado" class="form-control">
+                                            <input id="input-estado" type="text" name="estado" class="form-control" value="<?php testVal($aluno->getEndereco()->getEstado());?>">
                                     </div>
                                     <div class="form-group">
                                             <label for="input-cep">CEP: </label>
-                                            <input id="input-cep" type="text" name="cep" class="form-control">
+                                            <input id="input-cep" type="text" name="cep" class="form-control" value="<?php testVal($aluno->getEndereco()->getCep());?>">
                                     </div>
                                     <div class="form-group">
                                             <label for="input-anoinic">Ano de Inicio:</label>
-                                            <input id="input-anoinic" type="text" name="anoinic" class="form-control">
+                                            <input id="input-anoinic" type="text" name="anoinic" class="form-control" value="<?php testVal($aluno->getAnoInicio());?>">
                                     </div>               
                                     <div class="form-group">
                                             <label for="select-curso">Curso: </label>
-                                            <select id="select-curso" class="form-control" name="select-curse">
-                                                <option>Curso 1</option>
-                                                <option>Curso 2</option>
-                                                <option>Curso 3</option>
-                                                <option>Curso 4</option>
-                                                <option>Curso 5</option>
+                                            <select id="select-curso" class="form-control" name="select-curso">
+                                                <?php
+                                                    getCurso($aluno);
+                                                ?>
                                             </select>
                                     </div>
                                     <div class="form-group">
                                             <label for="select-semestre">Semestre: </label>
                                             <select id="select-semestre" class="form-control" name="select-semestre">
-                                                <option>Semestre 1</option>
-                                                <option>Semestre 2</option>
-                                                <option>Semestre 3</option>
-                                                <option>Semestre 4</option>
-                                                <option>Semestre 5</option>
+                                            <?php getSemestre($aluno);?>
+                                                
                                             </select>
                                     </div>
                                     <div class="form-group">
                                             <label>Bolsista: </label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="true" name="bolsista">
+                                                    <input type='hidden' value="0" name='bolsista'>
+                                                    <input type="checkbox" value="1" name="bolsista"   <?php   if(isset($aluno)&&!empty($aluno)&&$aluno->getBolsista()==1) echo "checked"   ?>    >
                                                 </label>
                                             </div>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-usuario">Usuário: </label>
-                                            <input id="input-usuario" type="text" name="usuario" class="form-control">
+                                            <input id="input-usuario" type="text" name="usuario" class="form-control" value="<?php testVal($aluno->getUsuario());?>">
                                     </div>
                                     <div class="form-group">
                                             <label for="input-senha">Senha: </label>
-                                            <input id="input-senha" type="password" name="senha" class="form-control">
+                                            <input id="input-senha" type="password" name="senha" class="form-control" value="<?php testVal($aluno->getPassword());?>">
                                      </div>
                                     <div class="form-group">
                                         <input type="submit" value="Salvar">
                                     </div>
                             </form>
+                            <?php if(isset($_POST["id"])){
+                                        $id=$_POST["id"];
+                                    ?>
+                            <form action="../gravabanco/gravaBancoAlunos.php" method="POST">
+                                <div class="form-group">
+                                        <input type="hidden" value="<?php echo $id;?>" name='id'>
+                                        <input type="hidden" value='remove' name='action'>
+                                        <input type="submit" value="Excluir">
+                                    </div>
+                                </form>
+                                <?php } ?>
                     </div>
             </div>
             <!-- /.row -->

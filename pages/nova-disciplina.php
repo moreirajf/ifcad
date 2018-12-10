@@ -34,7 +34,10 @@
     <![endif]-->
 
 </head>
-
+<?php
+    require_once "../config/include.php";
+    require_once "../control/disciplinacontroler.php";
+?>
 <body>
 
     <div id="wrapper">
@@ -99,7 +102,7 @@
             <!-- /.row -->
             <div class="row">
                     <div class="col-lg-8">
-                            <form role="form">
+                            <form role="form" action="../gravabanco/gravaBancoDisciplina.php" method="post">
                                     <div class="form-group">
                                             <label for="input-nome">Nome: </label>
                                             <input id="input-nome" type="text" name="nome" class="form-control">
@@ -114,12 +117,10 @@
                                     </div>
                                     <div class="form-group">
                                             <label for="select-curso">Curso: </label>
-                                            <select id="select-curso" class="form-control" name="select-curse">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                            <select id="select-curso" class="form-control" name="select-curso">
+                                                <?php
+                                                getCurso();
+                                                ?>
                                             </select>
                                     </div>
                                     <div class="form-group">
@@ -133,11 +134,9 @@
                                     <div class="form-group">
                                             <label for="select-professor">Professor: </label>
                                             <select id="select-professor" class="form-control" name="select-professor">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                            <?php
+                                                getProfessores();
+                                                ?>
                                             </select>
                                     </div>
                                     <div class="form-group">

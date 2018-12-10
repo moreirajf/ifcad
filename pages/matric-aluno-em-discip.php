@@ -36,7 +36,11 @@
 </head>
 
 <body>
+<?php
+    require_once("../config/include.php");
 
+require_once "../control/matriculacontrol.php";
+?>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -100,25 +104,21 @@
             <div class="row">
                     <div class="col-lg-8">
                             <div class="panel panel-default">
-                                <form role="form">
+                                <form role="form" action="../gravabanco/gravaMatricula.php" method="post">
                                         <div class="form-group">
                                             <label for="select-aluno">Aluno: </label>
                                             <select id="select-aluno" class="form-control" name="select-alun">
-                                                <option>Aluno 1</option>
-                                                <option>Aluno 2</option>
-                                                <option>Aluno 3</option>
-                                                <option>Aluno 4</option>
-                                                <option>Aluno 5</option>
+                                                <?php
+                                                    getAlunos();
+                                                ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="select-disciplina">Disciplina: </label>
                                             <select id="select-disciplina" class="form-control" name="select-discip">
-                                                <option>Disciplina 1</option>
-                                                <option>Disciplina 2</option>
-                                                <option>Disciplina 3</option>
-                                                <option>Disciplina 4</option>
-                                                <option>Disciplina 5</option>
+                                                <?php
+                                                    getDisciplinas();
+                                                ?>
                                             </select>
                                         </div>
                                         <div class="form-group">

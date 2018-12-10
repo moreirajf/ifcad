@@ -1,4 +1,4 @@
-<?
+<?php
     require_once("../config/include.php");
     $endereco = new Endereco();
     $endereco->setRua($_POST["rua"]);

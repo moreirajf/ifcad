@@ -21,7 +21,7 @@ class departamentoDAO{
         $stmt->execute([$id]); 
         $row = $stmt->fetch();
             $dep=new Departamento();
-            $aluno->setId($id);
+            $dep->setId(intval($id));
             $dep->setNome($row["NOME"]);
             $dep->setTelefone($row["TELEFONE"]);
             $instituto=InstitutoDAO::getById($row["IDINSTITUTO"]);
@@ -38,7 +38,8 @@ class departamentoDAO{
             $dep=new Departamento();
             $dep->setNome($row["NOME"]);
             $dep->setTelefone($row["TELEFONE"]);
-            $instituto=InstitutoDAO::getById($row["IDINSTITUTO"]);
+            $dep->setId($row["IDDEPARTAMENTO"]);
+            $instituto=InstitutoDAO::getById(intval($row["IDINSTITUTO"]));
             $dep->setInstituto($instituto);
             array_push($deps,$dep);
         }

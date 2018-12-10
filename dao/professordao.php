@@ -2,18 +2,18 @@
     class professorDAO{   
         public function insert(Professor $prof): int{
             $connection=ConnectionFactory::getConnection();
-            $stmt=$connection->prepare("INSERT (NOME,EMAIL,IDENDERECO,TELEFONE,COORDENADOR,IDDEPARTAMENTO,USUARIO,SENHA,ADMINISTRADOR) INTO PROFESSOR VALUES (?,?,?,?,?,?,?,?,?)");
+            $stmt=$connection->prepare("INSERT INTO PROFESSOR (NOME,EMAIL,IDENDERECO,TELEFONE,COORDENADOR,IDDEPARTAMENTO,USUARIO,SENHA,ADMINISTRADOR) VALUES (?,?,?,?,?,?,?,?,?)");
             $stmt->execute(array($prof->getNome(),
                                 $prof->getEmail(),
-                                $prof->getEndereco()->getIdendereco(),
+                                intval($prof->getEndereco()->getIdendereco()),
                                 $prof->getTelefone(),
-                                $prof->getCoordenador(),
+                                intval($prof->getCoordenador()),
                                 $prof->getDepartamento()->getId(),
                                 $prof->getUsuario(),
                                 $prof->getPassword(),
-                                $prof->getAdministrador()
+                                intval($prof->getAdministrador())
                             ));
-
+            $stmt->debugDumpParams();
             $id=$connection->lastInsertId();
             return $id;
         }
@@ -24,7 +24,7 @@
             $stmt = $connection->prepare("SELECT * FROM PROFESSOR WHERE IDPROFESSOR=?");
             $stmt->execute([$id]); 
             $row = $stmt->fetch();
-                $professor=Professor();
+                $professor=new Professor();
                 $professor->setNome($row["NOME"]);
                 $professor->setEmail($row["EMAIL"]);
                 $professor->setTelefone($row["TELEFONE"]);
@@ -46,7 +46,7 @@
             $stmt = $connection->query("SELECT * FROM PROFESSOR");
             $professores=array();
             while ($row = $stmt->fetch()) {
-                $professor=Professor();
+                $professor=new Professor();
                 $professor->setNome($row["NOME"]);
                 $professor->setEmail($row["EMAIL"]);
                 $professor->setTelefone($row["TELEFONE"]);
@@ -59,7 +59,7 @@
                 $departamento=departamentoDAO::getById($row["IDDEPARTAMENTO"]);
                 $professor->setEndereco($endereco);
                 $professor->setDepartamento($departamento);
-                $professores->push($professor);
+                array_push($professores,$professor);
             }
             return $professores;
         }
@@ -82,6 +82,7 @@
                 $professor->setUsuario($row["USUARIO"]);
                 $professor->setPassword($row["SENHA"]);
                 $endereco=enderecoDAO::getById($row["IDENDERECO"]);
+                
                 $departamento=departamentoDAO::getById($row["IDDEPARTAMENTO"]);
                 $professor->setEndereco($endereco);
                 $professor->setDepartamento($departamento);

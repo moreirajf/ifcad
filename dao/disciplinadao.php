@@ -27,11 +27,9 @@
                 $disciplina->setHorario($row["HORARIO"]); 
                 $disciplina->setSala($row["SALA"]); 
                 $professor=professorDAO::getById($row["IDPROFESSOR"]);
-                //FALTA PEGAR CURSO
-
-
-                $endereco=enderecoDAO::getById($row["IDENDERECO"]);
-                $disciplina->setEndereco($endereco);
+                $disciplina->setId($row["IDDISCIPLINA"]);
+                
+                $disciplina->setCurso(cursoDAO::getById($row["IDCURSO"]));
                 array_push($disciplinas,$disciplina);
             }
             return $disciplinas;
@@ -48,9 +46,13 @@
                 $disciplina->setNome($row["NOME"]);
                 $disciplina->setDescricao($row["DESCRICAO"]);
                 $disciplina->setCargaHoraria($row["CARGAHORARIA"]); 
-                $disciplina->setHorario($row["HORARIO"]); 
+                $date = new DateTime($row["HORARIO"]);
+                $result = $date->format('H:i');
+                $disciplina->setHorario($result); 
                 $disciplina->setSala($row["SALA"]); 
                 //FALTA PEGAR CURSO
+                
+                $disciplina->setCurso(cursoDAO::getById($row["IDCURSO"]));
                 $disciplina->setProfessor($prof);
                 array_push($disciplinas,$disciplina);
             }
@@ -67,7 +69,9 @@
                 $disciplina->setNome($row["NOME"]);
                 $disciplina->setDescricao($row["DESCRICAO"]);
                 $disciplina->setCargaHoraria($row["CARGAHORARIA"]); 
-                $disciplina->setHorario($row["HORARIO"]); 
+                $date = new DateTime($row["HORARIO"]);
+                $result = $date->format('H:i');
+                $disciplina->setHorario($result);
                 $disciplina->setSala($row["SALA"]); 
                 $professor=professorDAO::getById($row["IDPROFESSOR"]);
                 $disciplina->setProfessor($professor);

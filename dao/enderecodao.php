@@ -25,6 +25,7 @@
                                 $endereco->getCep(),
                                 $endereco->getIdendereco()
                             ));
+                            $stmt->debugDumpParams();
         }
         
 
