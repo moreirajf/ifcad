@@ -34,7 +34,6 @@
             }
             else echo "<option value='$i'>Semestre $i</option>";
         }
-
     }
 
 ?>

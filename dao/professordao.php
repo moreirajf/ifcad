@@ -19,6 +19,28 @@
         }
 
 
+        public function delete(Professor $prof){
+            $connection=ConnectionFactory::getConnection();
+            $stmt=$connection->prepare("DELETE FROM PROFESSOR WHERE IDPROFESSOR=?");
+            $stmt->execute(array($prof->getId()));
+        }
+
+        public function update(Professor $prof){
+            $connection=ConnectionFactory::getConnection();
+            $stmt=$connection->prepare("UPDATE PROFESSOR SET NOME=?,EMAIL=?,TELEFONE=?,COORDENADOR=?,IDDEPARTAMENTO=?,USUARIO=?,SENHA=?,ADMINISTRADOR=? WHERE IDPROFESSOR=?");
+            $stmt->execute(array($prof->getNome(),
+                                $prof->getEmail(),
+                                $prof->getTelefone(),
+                                intval($prof->getCoordenador()),
+                                $prof->getDepartamento()->getId(),
+                                $prof->getUsuario(),
+                                $prof->getPassword(),
+                                intval($prof->getAdministrador()),
+                                $prof->getId()
+                            ));
+            
+        }
+
         public function getById($id):Professor{
             $connection=ConnectionFactory::getConnection();
             $stmt = $connection->prepare("SELECT * FROM PROFESSOR WHERE IDPROFESSOR=?");

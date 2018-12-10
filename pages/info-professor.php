@@ -114,23 +114,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                     <?php for ($i = 0; $i < count($meuAlunos); $i++) { ?>
+                                     <?php for ($i = 0; $i < count($meuProfessor); $i++) { ?>
                                         <tr class="odd gradeX">
-                                            <form action="novo-aluno.php" method="post">
-                                            <input type="hidden" value=<?php echo $meuAlunos[$i]->getId();?> name="id">
+                                            <form action="novo-professor.php" method="post">
+                                            <input type="hidden" value=<?php echo $meuProfessor[$i]->getId();?> name="id">
                                             <td><?php echo $meuProfessor[$i]->getNome(); ?></td>
                                             <td><?php echo $meuProfessor[$i]->getTelefone(); ?></td>
                                             <td><?php echo $meuProfessor[$i]->getDepartamento()->getNome(); ?></td>
                                             <td><?php if($meuProfessor[$i]->getCoordenador()==1)echo "SIM";
                                                 else echo "NÃO";
                                             ?></td>
+                                            <td><?php if($meuProfessor[$i]->getAdministrador()==1)echo "SIM";
+                                                else echo "NÃO";
+                                            ?></td>
                                             <td><?php echo $meuProfessor[$i]->getUsuario(); ?></td>
-                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getCep(); ?></td>
-                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getRua(); ?></td>
-                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getNumero(); ?></td>
-                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getBairro(); ?></td>
-                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getCidade(); ?></td>
-                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getEstado(); ?></td>
+                                            <td><?php echo $meuProfessor[$i]->getEndereco()->getCep(); ?></td>
+                                            <td><?php echo $meuProfessor[$i]->getEndereco()->getRua(); ?></td>
+                                            <td><?php echo $meuProfessor[$i]->getEndereco()->getNumero(); ?></td>
+                                            <td><?php echo $meuProfessor[$i]->getEndereco()->getBairro(); ?></td>
+                                            <td><?php echo $meuProfessor[$i]->getEndereco()->getCidade(); ?></td>
+                                            <td><?php echo $meuProfessor[$i]->getEndereco()->getEstado(); ?></td>
                                                                                        
                                             <td>
                                             <input type="submit" value="EDITAR">
