@@ -72,6 +72,9 @@
                                 <li>
                                     <a href="novo-professor.php">Novo Professor</a>
                                 </li>
+                                <li>
+                                    <a href="info-professor.php">Info Professor</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
