@@ -36,7 +36,9 @@
 </head>
 
 <body>
-
+<?php
+        require_once "../config/include.php";
+    ?>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -83,7 +85,7 @@
                 </div>
                 <!-- /.col-lg-12 -->
                 <div class="panel-body">
-                    <?php  $meusInstitutos = (new institudoDao())->select(); ?>
+                    <?php  $meusInstitutos = (new institutoDao())->select(); ?>
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>

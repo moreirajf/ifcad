@@ -99,9 +99,9 @@
                                 <tr class="odd gradeX">
                                     <form action="novo-departamento.php" method="post">
                                         <input type="hidden" value=<?php echo $meusDepartamentos[$i]->getId();?> name="id">
-                                        <td><?php echo $meusCursos[$i]->getNome(); ?></td>
-                                        <td><?php echo $meusCursos[$i]->getTelefone(); ?></td>
-                                        <td><?php echo $meusCursos[$i]->getInstituto()->getNome(); ?></td>
+                                        <td><?php echo $meusDepartamentos[$i]->getNome(); ?></td>
+                                        <td><?php echo $meusDepartamentos[$i]->getTelefone(); ?></td>
+                                        <td><?php echo $meusDepartamentos[$i]->getInstituto()->getNome(); ?></td>
                                         <td>
                                             <input type="submit" value="EDITAR">
                                         </td>

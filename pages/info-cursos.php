@@ -101,6 +101,7 @@
                                 <th>Departamento</th>
                                 <th>Área</th>
                                 <th>Vagas</th>
+                                <th>Ação</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -109,7 +110,7 @@
                                     <form action="novo-curso.php" method="post">
                                         <input type="hidden" value=<?php echo $meusCursos[$i]->getId();?> name="id">
                                         <td><?php echo $meusCursos[$i]->getNome(); ?></td>
-                                        <td><?php echo $meusCursos[$i]->getDepartamento(); ?></td>
+                                        <td><?php echo $meusCursos[$i]->getDepartamento()->getNome(); ?></td>
                                         <td><?php echo $meusCursos[$i]->getArea();; ?></td>
                                         <td><?php echo $meusCursos[$i]->getVagas(); ?></td>
                                         <td>
