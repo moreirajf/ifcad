@@ -3,9 +3,10 @@
         
         public function insert(Instituto $if): int{
             $connection=ConnectionFactory::getConnection();
-            $stmt=$connection->prepare("INSERT (NOME,IDENDERECO) INTO INSTITUTO VALUES (?,?)");
+            $stmt=$connection->prepare("INSERT INTO INSTITUTO(NOME,IDENDERECO) VALUES (?,?)");
             $stmt->execute(array($if->getNome(),$if->getEndereco()->getIdendereco()));
-            return $connection->lastInsertId();
+            $id=$connection->lastInsertId();
+            return $id;
         }
 
         public function select():array{
@@ -13,11 +14,12 @@
             $stmt = $connection->query("SELECT * FROM INSTITUTO");
             $institutos=array();
             while ($row = $stmt->fetch()) {
-                $instituto=Instituto();
+                $instituto=new Instituto();
+                $instituto->setId($row["IDINSTITUTO"]); 
                 $instituto->setNome($row["NOME"]);
                 $endereco=enderecoDAO::getById($row["IDENDERECO"]);
                 $instituto->setEndereco($endereco);
-                $institutos->push($instituto);
+                array_push($institutos,$instituto);
             }
             return $institutos;
         }
@@ -33,6 +35,22 @@
             $stmt=$connection->prepare("DELETE FROM INSTITUTO WHERE IDINSTITUTO=?");
             $stmt->execute(array($if->getId()));
         }
+
+
+
+        public static function getByID($id):Instituto{
+            $connection=ConnectionFactory::getConnection();
+            $stmt = $connection->prepare("SELECT * FROM INSTITUTO WHERE IDINSTITUTO=?");
+            $stmt->execute(array($id));
+            $row = $stmt->fetch();
+            $instituto=new Instituto();
+            $instituto->setNome($row["NOME"]);
+            $endereco=enderecoDAO::getById($row["IDENDERECO"]);
+            $instituto->setEndereco($endereco);
+            return $instituto;
+        }
+
+
 
     }
 

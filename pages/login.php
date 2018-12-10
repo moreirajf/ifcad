@@ -33,7 +33,55 @@
 </head>
 
 <body>
+<?php 
+    
 
+    $erro="";
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $usuario=$_POST["usuario"];
+        $senha=$_POST["senha"];
+
+        if($senha="admin"&&$usuario=="admin"){
+            session_start();
+            $_SESSION["admin"]=true;
+            header("Location: index.php");
+        }
+
+        $dao=new professorDAO();
+        $professor=$dao->tryLogin($usuario,$senha);
+        
+        if($professor!=false){
+            if($professor->getAdministrador()){
+                session_start();
+                $_SESSION["admin"]=true;
+                $_SESSION["iduser"]=$professor->getId();
+                $_SESSION["professor"]=true;
+                header("Location: index.php");
+            }
+            else{
+                session_start();
+                $_SESSION["admin"]=false;
+                $_SESSION["iduser"]=$professor->getId();
+                $_SESSION["professor"]=true;
+                header("Location: index.php");
+            }
+            
+        }
+        $dao=new alunoDAO();
+        $aluno=$dao->tryLogin($usuario,$senha);
+        if($aluno!=false){
+                session_start();
+                $_SESSION["admin"]=true;
+                $_SESSION["iduser"]=$aluno->getId();
+                $_SESSION["aluno"]=true;
+                header("Location: index.php");
+            }
+            else {
+                $erro="Usuário não encontrado";
+            } 
+   }
+
+?>
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -42,13 +90,13 @@
                         <h3 class="panel-title">Indentifique-se</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" method="POST">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="CPF" name="cpf" type="cpf" autofocus>
+                                    <input class="form-control" placeholder="USUARIO" name="usuario" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Senha" name="senha" type="password" value="">
+                                    <input class="form-control" placeholder="SENHA" name="senha" type="password" value="">
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -56,7 +104,7 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="../aluno/principal-alunos.php" class="btn btn-lg btn-success btn-block">Login</a>
+                                <input type="submit" class="btn btn-lg btn-success btn-block" value="Login">
                             </fieldset>
                         </form>
                     </div>

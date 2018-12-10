@@ -86,6 +86,7 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
+<<<<<<< HEAD
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -135,6 +136,9 @@
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
+=======
+            <?php include "menu.php";?>
+>>>>>>> 7ec24f3c51b80c5842a1d138b0761094d793fad6
             <!-- /.navbar-static-side -->
         </nav>
 

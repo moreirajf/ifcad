@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>IFCAD - Disciplinas Aluno</title>
+    <title>IFCAD - Universidade Aluno</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="principal-aluno.php">IFCAD -  Disciplinas Aluno</a>
+                <a class="navbar-brand" href="principal-alunos.php">IFCAD - Universidade Aluno</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -86,7 +86,7 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
-<<<<<<< HEAD
+<<<<<<< HEAD:aluno/info-universidade-aluno.php
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -103,13 +103,13 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="principal-aluno.php"><span class="glyphicon glyphicon-home"></span><i class="fa fa-fw"></i> Principal</a>
+                            <a href="principal-alunos.php"><span class="glyphicon glyphicon-home"></span><i class="fa fa-fw"></i> Principal</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-fw"><span class=" glyphicon glyphicon-education "></span></i> Universidades<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="info-universidade.php">Informação</a>
+                                    <a href="info-universidade-aluno.php">Informação</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -138,14 +138,14 @@
             </div>
 =======
             <?php include "menu.php";?>
->>>>>>> 7ec24f3c51b80c5842a1d138b0761094d793fad6
+>>>>>>> 7ec24f3c51b80c5842a1d138b0761094d793fad6:aluno/info-universidades-aluno.php
             <!-- /.navbar-static-side -->
         </nav>
 
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Disciplinas Aluno</h1>
+                    <h1 class="page-header">Universidade Aluno</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

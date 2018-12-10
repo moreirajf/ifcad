@@ -34,7 +34,11 @@
     <![endif]-->
 
 </head>
+<?php
+    require_once("../config/include.php");
 
+require_once "../control/professorcontrol.php";
+?>
 <body>
 
     <div id="wrapper">
@@ -67,123 +71,14 @@
                     <!-- /.dropdown-alerts -->
                 </li>
                 <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
+                <?php include "menu-login.php"; ?>
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href="index.php"><span class="glyphicon glyphicon-home"></span><i class="fa fa-fw"></i> Principal</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class=" glyphicon glyphicon-education "></span></i> Universidades<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="nova-universidade.php">Nova Universidade</a>
-                                </li>
-                                <li>
-                                    <a href="info-universidades.php">Informação</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-folder-open"></span></i> Departamentos<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="novo-departamento.php">Novo Departamento</a>
-                                </li>
-                                <li>
-                                    <a href="info-departamentos.php">Estatísticas</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-pencil"></span></i> Cursos<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="novo-curso.php">Novo Curso</a>
-                                </li>
-                                <li>
-                                    <a href="info-cursos.php">Informação</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="fa-edit"></span></i> Disciplinas<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="nova-disciplina.php">Nova Disciplina</a>
-                                </li>
-                                <li>
-                                    <a href="matric-aluno-em-discip.php">Matricular Aluno em Disciplina</a>
-                                </li>
-                                <li>
-                                    <a href="info-disciplinas.php">Informações</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-briefcase"></span></i> Professores<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="novo-professor.php">Novo Professor</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-user"></span></i> Alunos<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="novo-aluno.php">Novo Aluno</a>
-                                </li>
-                                <li>
-                                    <a href="matric-aluno-em-discip.php">Matricular Aluno em Disciplina</a>
-                                </li>
-                                <li>
-                                    <a href="info-alunos.php">Informações Alunos</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>    
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
+            <?php include "menu.php";?>
             <!-- /.navbar-static-side -->
         </nav>
+
 
         <div id="page-wrapper">
             <div class="row">
@@ -195,50 +90,103 @@
             <!-- /.row -->
             <div class="row">
                     <div class="col-lg-8">
-                            <form role="form">
+                            <form role="form" action="../gravabanco/gravaBancoProfessor.php" method="POST">
+
+                            <?php
+                                    if(isset($_POST["id"])){
+                                        $id=$_POST["id"];
+                                        echo "<input type='hidden' value='$id' name='id'>";
+                                    }
+                                    
+                                    ?>
                                     <div class="form-group">
                                             <label for="input-nome">Nome: </label>
-                                            <input id="input-nome" type="text" name="nome" class="form-control">
+                                            <input id="input-nome" type="text" name="nome" class="form-control" <?php if(isset($professor)){
+                                                echo "value='".$professor->getNome()."'";
+                                            }?>>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-rua">Rua: </label>
+                                            <input id="input-rua" type="text" name="rua" class="form-control" <?php if(isset($professor)){
+                                                echo "value='".$professor->getEndereco()->getRua()."'";
+                                            }?>>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-numero">Número: </label>
+                                            <input id="input-numero" type="text" name="numero" class="form-control"<?php if(isset($professor)){
+                                                echo "value='".$professor->getEndereco()->getNumero()."'";
+                                            }?>>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-bairro">Bairro: </label>
+                                            <input id="input-bairro" type="text" name="bairro" class="form-control" <?php if(isset($professor)){
+                                                echo "value='".$professor->getEndereco()->getBairro()."'";
+                                            }?>>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-cidade">Cidade: </label>
+                                            <input id="input-cidade" type="text" name="cidade" class="form-control" <?php if(isset($professor)){
+                                                echo "value='".$professor->getEndereco()->getCidade()."'";
+                                            }?>>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-estado">Estado: </label>
+                                            <input id="input-estado" type="text" name="estado" class="form-control" <?php if(isset($professor)){
+                                                echo "value='".$professor->getEndereco()->getEstado()."'";
+                                            }?>>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="input-cep">CEP: </label>
+                                            <input id="input-cep" type="text" name="cep" class="form-control" <?php if(isset($professor)){
+                                                echo "value='".$professor->getEndereco()->getCep()."'";
+                                            }?>>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-email">Email: </label>
-                                            <input id="input-email" type="text" name="email" class="form-control">
+                                            <input id="input-email" type="text" name="email" class="form-control" <?php if(isset($professor)){
+                                                echo "value='".$professor->getEmail()."'";
+                                            }?>>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-telefone">Telefone: </label>
-                                            <input id="input-telefone" type="tel" name="telefone" class="form-control">
+                                            <input id="input-telefone" type="tel" name="telefone" class="form-control" <?php if(isset($professor)){
+                                                echo "value='".$professor->getTelefone()."'";
+                                            }?>>
                                     </div>
                                     <div class="form-group">
                                             <label>Coordenador: </label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="coorddenador">
+                                                <input type='hidden' value="0" name='coordenador'>
+                                                    <input type="checkbox" value="1" name="coordenador"  <?php   if(isset($professor)&&$professor->getCoordenador()==1) echo "checked"   ?>>
                                                 </label>
                                             </div>
                                     </div>
                                     <div class="form-group">
                                             <label for="select-departamento">Departamento: </label>
-                                            <select id="select-departamento" class="form-control" name="select-departament">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
+                                            <select id="select-departamento" class="form-control" name="select-departamento">
+                                            
+                                            <?php getDepartamento($professor);?>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-usuario">Usuário: </label>
-                                            <input id="input-usuario" type="text" name="usuario" class="form-control">
+                                            <input id="input-usuario" type="text" name="usuario" class="form-control" <?php if(isset($professor)){
+                                                echo "value='".$professor->getUsuario()."'";
+                                            }?>>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-senha">Senha: </label>
-                                            <input id="input-senha" type="password" name="senha" class="form-control">
+                                            <input id="input-senha" type="password" name="senha" class="form-control" <?php if(isset($professor)){
+                                                echo "value='".$professor->getPassword()."'";
+                                            }?>>
                                     </div>
                                     <div class="form-group">
                                             <label>Administrador: </label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="coordenador">
+                                                <input type='hidden' value="0" name='administrador'>
+                                                    <input type="checkbox" value="1" name="administrador" <?php   if(isset($professor)&&$professor->getAdministrador()==1) echo "checked"   ?>>
                                                 </label>
                                             </div>
                                     </div>
@@ -246,6 +194,18 @@
                                         <input type="submit" value="Salvar">
                                     </div>
                             </form>
+
+                             <?php if(isset($_POST["id"])){
+                                        $id=$_POST["id"];
+                                    ?>
+                            <form action="../gravabanco/gravaBancoProfessor.php" method="POST">
+                                <div class="form-group">
+                                        <input type="hidden" value="<?php echo $id;?>" name='id'>
+                                        <input type="hidden" value='remove' name='action'>
+                                        <input type="submit" value="Excluir">
+                                    </div>
+                                </form>
+                                <?php } ?>
                     </div>
             </div>
             <!-- /.row -->

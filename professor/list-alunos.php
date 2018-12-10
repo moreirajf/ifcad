@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>IFCAD - Nova Universidade</title>
+    <title>IFCAD - Alunos Disciplina selecionada</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">IFCAD - Nova Universidade</a>
+                <a class="navbar-brand" href="principal-professor.php">IFCAD - Alunos Disciplina selecionada</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -56,12 +57,12 @@
                 
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="contato.php">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="contato.html">
                             <i class="fa fa-fw"><span class="glyphicon glyphicon-envelope"></span></i> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
-                                <a href="contato.php">Contato</a>
+                                <a href="../pages/contato.html">Contato</a>
                             </li>
                         </ul>
                     <!-- /.dropdown-alerts -->
@@ -78,48 +79,14 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Nova Universidade</h1>
+                    <h1 class="page-header">Alunos Disciplina selecionada</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-8">
-                        <div class="panel panel-default">
-                            <form role="form" action="../gravabanco/gravaBancoInstituto.php" method="POST">
-                                    <div class="form-group">
-                                            <label for="input-nome">Nome: </label>
-                                            <input id="input-nome" type="text" name="nome" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                            <label for="input-rua">Rua: </label>
-                                            <input id="input-rua" type="text" name="rua" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                            <label for="input-numero">Número: </label>
-                                            <input id="input-numero" type="text" name="numero" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                            <label for="input-bairro">Bairro: </label>
-                                            <input id="input-bairro" type="text" name="bairro" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                            <label for="input-cidade">Cidade: </label>
-                                            <input id="input-cidade" type="text" name="cidade" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                            <label for="input-estado">Estado: </label>
-                                            <input id="input-estado" type="text" name="estado" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                            <label for="input-cep">CEP: </label>
-                                            <input id="input-cep" type="text" name="cep" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="submit" value="Salvar">
-                                    </div>
-                            </form>
-                        </div>
+                <div class="col-lg-12">
+                    
                 </div>
             </div>
             <!-- /.row -->

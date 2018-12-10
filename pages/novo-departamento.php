@@ -36,7 +36,10 @@
 </head>
 
 <body>
+<?php require_once("../config/include.php");
+        require_once("../control/departamentocontrol.php");
 
+?>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -67,121 +70,11 @@
                     <!-- /.dropdown-alerts -->
                 </li>
                 <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
+                <?php include "menu-login.php"; ?>
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href="index.php"><span class="glyphicon glyphicon-home"></span><i class="fa fa-fw"></i> Principal</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class=" glyphicon glyphicon-education "></span></i> Universidades<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="nova-universidade.php">Nova Universidade</a>
-                                </li>
-                                <li>
-                                    <a href="info-universidades.php">Informação</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-folder-open"></span></i> Departamentos<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="novo-departamento.php">Novo Departamento</a>
-                                </li>
-                                <li>
-                                    <a href="info-departamentos.php">Estatísticas</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-pencil"></span></i> Cursos<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="novo-curso.php">Novo Curso</a>
-                                </li>
-                                <li>
-                                    <a href="info-cursos.php">Informação</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="fa-edit"></span></i> Disciplinas<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="nova-disciplina.php">Nova Disciplina</a>
-                                </li>
-                                <li>
-                                    <a href="matric-aluno-em-discip.php">Matricular Aluno em Disciplina</a>
-                                </li>
-                                <li>
-                                    <a href="info-disciplinas.php">Informações</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-briefcase"></span></i> Professores<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="novo-professor.php">Novo Professor</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-user"></span></i> Alunos<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="novo-aluno.php">Novo Aluno</a>
-                                </li>
-                                <li>
-                                    <a href="matric-aluno-em-discip.php">Matricular Aluno em Disciplina</a>
-                                </li>
-                                <li>
-                                    <a href="info-alunos.php">Informações Alunos</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>    
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
+            <?php include "menu.php";?>
             <!-- /.navbar-static-side -->
         </nav>
 
@@ -196,7 +89,7 @@
             <div class="row">
                     <div class="col-lg-8">
                             <div class="panel panel-default">
-                                <form role="form">
+                                <form role="form" action="../gravabanco/gravaBancoDepartamento.php" method="POST">
                                         <div class="form-group">
                                                 <label for="input-nome">Nome: </label>
                                                 <input id="input-nome" type="text" name="nome" class="form-control">
@@ -207,12 +100,10 @@
                                         </div>
                                         <div class="form-group">
                                                 <label for="select-universidade">Universidade: </label>
-                                                <select id="select-universidade" class="form-control" name="select-universit">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
+                                                <select id="select-universidade" class="form-control" name="select-universidade">
+                                                    <?php
+                                                        getInstitutos();
+                                                    ?>
                                                 </select>
                                             </div>
                                         <div class="form-group">

@@ -1,9 +1,5 @@
 <?php
 class cursoDAO{   
-    
-    
-    
-    
     public function insert(Curso $curso): int{
         $connection=ConnectionFactory::getConnection();
         $stmt=$connection->prepare("INSERT INTO CURSO (NOME,AREA,VAGAS,IDDEPARTAMENTO) VALUES (?,?,?,?)");
@@ -11,7 +7,8 @@ class cursoDAO{
                             $curso->getArea(),
                             $curso->getVagas(),
                             $curso->getDepartamento()->getId()));
-        return $connection->lastInsertId();
+        $id=$connection->lastInsertId();
+        return $id;    
     }
 
     public function update(Curso $curso){
@@ -40,7 +37,7 @@ class cursoDAO{
         $stmt = $connection->prepare("SELECT * FROM CURSO WHERE IDCURSO=?");
         $stmt->execute([$id]); 
         $row = $stmt->fetch();
-        $curso=Curso();
+        $curso=new Curso();
         $curso->setNome($row["NOME"]);
         $curso->setArea($row["AREA"]);
         $curso->setVagas($row["VAGAS"]);
@@ -55,14 +52,14 @@ class cursoDAO{
         $stmt = $connection->query("SELECT * FROM CURSO");
         $cursos=array();
         while ($row = $stmt->fetch()) {
-            $curso=Curso();
+            $curso=new Curso();
             $curso->setNome($row["NOME"]);
             $curso->setArea($row["AREA"]);
-            $curso->setTelefone($row["VAGAS"]);
+            $curso->setVagas($row["VAGAS"]);
             $curso->setId($row["IDCURSO"]);
             $departamento=departamentoDAO::getById($row["IDDEPARTAMENTO"]);
             $curso->setDepartamento($departamento);
-            $cursos->push($curso);
+            array_push($cursos,$curso);
         }
         return $cursos;
     }
