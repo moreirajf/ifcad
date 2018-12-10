@@ -28,7 +28,7 @@
                 $disciplina->setSala($row["SALA"]); 
                 $professor=professorDAO::getById($row["IDPROFESSOR"]);
                 $disciplina->setId($row["IDDISCIPLINA"]);
-                
+                $disciplina->setProfessor($professor);
                 $disciplina->setCurso(cursoDAO::getById($row["IDCURSO"]));
                 array_push($disciplinas,$disciplina);
             }

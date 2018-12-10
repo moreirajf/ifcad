@@ -106,7 +106,7 @@
                                         <td><?php echo $minhasDisciplinas[$i]->getNome(); ?></td>
                                         <td><?php echo $minhasDisciplinas[$i]->getDescricao(); ?></td>
                                         <td><?php echo $minhasDisciplinas[$i]->getCargahoraria();; ?></td>
-                                        <td><?php echo $minhasDisciplinas[$i]->getCurso(); ?></td>
+                                        <td><?php echo $minhasDisciplinas[$i]->getCurso()->getNome(); ?></td>
                                         <td><?php echo $minhasDisciplinas[$i]->getHorario(); ?></td>
                                         <td><?php echo $minhasDisciplinas[$i]->getSala(); ?></td>
                                         <td><?php echo $minhasDisciplinas[$i]->getProfessor()->getNome(); ?></td>
