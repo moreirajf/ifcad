@@ -1,8 +1,4 @@
 <?
-    /**
-     * endereco
-     */
-
     require_once("../config/include.php");
     $endereco = new Endereco();
     $endereco->setRua($_POST["rua"]);
@@ -16,9 +12,7 @@
     $idEndereco = $envia->insert($endereco);
     $endereco->setIdendereco($idEndereco); 
     
-    /**
-     * instituto
-     */
+ 
     $instituto = new Instituto();
     $instituto->setNome($_POST["nome"]);
     $instituto->setEndereco($endereco);
@@ -29,7 +23,5 @@
     echo $idInstituto;
     echo "<br>";
     
-    echo $idEndereco;
-    
-    //header("Location: ../pages/info-universidades.php");
+    header("Location: ../pages/info-universidades.php");
 ?>

@@ -19,7 +19,7 @@
     /**
      * professor
      */
-    $professor= new Alunos();
+    $professor= new Professor();
     $professor->setNome($_POST["nome"]);
     $professor->setEndereco($endereco);
     $professor->setTelefone($_POST["telefone"]);
