@@ -82,6 +82,37 @@
                     <h1 class="page-header">Universidade Professor</h1>
                 </div>
                 <!-- /.col-lg-12 -->
+                <div class="panel-body">
+                    <?php  $meuInstituto = (new institutoDao())->select(); ?>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Rua</th>
+                                <th>Numero</th>
+                                <th>Bairro</th>
+                                <th>Cidade</th>
+                                <th>Estado</th>
+                                <th>CEP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php for ($i = 0; $i < count($meuInstituto); $i++) { ?>
+                                <tr class="odd gradeX">
+                                    <td><?php echo $meuInstituto[$i]->getInstituto()->getNome(); ?></td>
+                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getRua(); ?></td>
+                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getNumero(); ?></td>
+                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getBairro(); ?></td>
+                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getCidade(); ?></td>
+                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getEstado(); ?></td>
+                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getCep(); ?></td>
+                
+                                </tr>
+                            <?php } ?>                                   
+                        </tbody>
+                    </table>
+                <!-- /.table-responsive -->
+                </div>
             </div>
             <!-- /.row -->
             <div class="row">
