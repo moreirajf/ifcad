@@ -35,7 +35,7 @@
 <body>
 <?php 
     $login=true;
-    $access="all";
+    $access="none";
     require_once("../config/include.php");
     
     if(isset($_GET["end"])){

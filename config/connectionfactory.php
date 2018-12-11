@@ -4,7 +4,7 @@
         public static function getConnection(): PDO{
             $host="localhost";
             $user="root";
-            $pass="";
+            $pass="root";
             $db="SINAU";
 
 

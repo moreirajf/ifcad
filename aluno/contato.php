@@ -67,7 +67,15 @@
                     <!-- /.dropdown-alerts -->
                 </li>
                 <!-- /.dropdown -->
-                <?php include "menu-login.php"; ?>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                       
+                        <li><a href="../pages/login.php?end=1"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
@@ -86,10 +94,16 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                        <p>Avenida Dirce Pereira Rosa, 300, Jardim Esperança</p>
-                        <p>Poços de Caldas - MG - CEP 37713-100</p>
-                        <p>Fone: (35) 3697-4950</p>
-                        <p>gabinete.pocos@ifsuldeminas.edu.br</p>
+                    <div class="col-lg-12">
+                            <div class="col-lg-3">
+                                <img class="img-rounded img-responsive" src="../img/denis.jpg"/>
+                            </div>
+                            <p>Denis Bernades Oliveira</p>
+                            <p>Avenida Dirce Pereira Rosa, 300, Jardim Esperança</p>
+                            <p>Poços de Caldas - MG - CEP 37713-100</p>
+                            <p>Fone: (35) 3697-4950</p>
+                            <p>denis.oliveira@alunos.ifsuldeminas.edu.br</p>
+                    </div>
                 </div>
             </div>
             <!-- /.row -->

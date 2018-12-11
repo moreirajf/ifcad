@@ -105,12 +105,7 @@ $access="admin";
                                         <th>Coordenador</th>
                                         <th>Administrador</th>
                                         <th>Usuario</th>
-                                        <th>Cep</th>
-                                        <th>Rua</th>
-                                        <th>Numero</th>
-                                        <th>Bairro</th>
-                                        <th>Cidade</th>
-                                        <th>Estado</th>
+                                        <th>Endereço</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
@@ -129,12 +124,8 @@ $access="admin";
                                                 else echo "NÃO";
                                             ?></td>
                                             <td><?php echo $meuProfessor[$i]->getUsuario(); ?></td>
-                                            <td><?php echo $meuProfessor[$i]->getEndereco()->getCep(); ?></td>
-                                            <td><?php echo $meuProfessor[$i]->getEndereco()->getRua(); ?></td>
-                                            <td><?php echo $meuProfessor[$i]->getEndereco()->getNumero(); ?></td>
-                                            <td><?php echo $meuProfessor[$i]->getEndereco()->getBairro(); ?></td>
-                                            <td><?php echo $meuProfessor[$i]->getEndereco()->getCidade(); ?></td>
-                                            <td><?php echo $meuProfessor[$i]->getEndereco()->getEstado(); ?></td>
+                                            <td><?php echo $meuProfessor[$i]->getEndereco()->getRua().", ".$meuProfessor[$i]->getEndereco()->getNumero().", ".$meuProfessor[$i]->getEndereco()->getBairro().", ".$meuProfessor[$i]->getEndereco()->getCidade().", ".$meuProfessor[$i]->getEndereco()->getEstado(); ?></td>
+                                            
                                                                                        
                                             <td>
                                             <input type="submit" value="EDITAR">

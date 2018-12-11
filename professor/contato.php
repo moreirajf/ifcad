@@ -86,10 +86,16 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
+                <div class="col-lg-12">
+                        <div class="col-lg-3">
+                            <img class="img-rounded img-responsive" src="../img/otaku.jpeg"/>
+                        </div>
+                        <p>Rafael Luiz Savenhago</p>
                         <p>Avenida Dirce Pereira Rosa, 300, Jardim Esperança</p>
                         <p>Poços de Caldas - MG - CEP 37713-100</p>
                         <p>Fone: (35) 3697-4950</p>
-                        <p>gabinete.pocos@ifsuldeminas.edu.br</p>
+                        <p>rafael.savenhago@alunos.ifsuldeminas.edu.br</p>
+                </div>
                 </div>
             </div>
             <!-- /.row -->

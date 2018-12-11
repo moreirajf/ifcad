@@ -115,12 +115,7 @@
                                         <th>Coordenador</th>
                                         <th>Administrador</th>
                                         <th>Usuario</th>
-                                        <th>Cep</th>
-                                        <th>Rua</th>
-                                        <th>Numero</th>
-                                        <th>Bairro</th>
-                                        <th>Cidade</th>
-                                        <th>Estado</th>
+                                        <th>Endereço</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -136,12 +131,7 @@
                                                 else echo "NÃO";
                                             ?></td>
                                             <td><?php echo $professor->getUsuario(); ?></td>
-                                            <td><?php echo $professor->getEndereco()->getCep(); ?></td>
-                                            <td><?php echo $professor->getEndereco()->getRua(); ?></td>
-                                            <td><?php echo $professor->getEndereco()->getNumero(); ?></td>
-                                            <td><?php echo $professor->getEndereco()->getBairro(); ?></td>
-                                            <td><?php echo $professor->getEndereco()->getCidade(); ?></td>
-                                            <td><?php echo $professor->getEndereco()->getEstado(); ?></td>
+                                            <td><?php echo $professor->getEndereco()->getRua().", ".$professor->getEndereco()->getNumero().", ".$professor->getEndereco()->getBairro().", ".$professor->getEndereco()->getCidade().", ".$professor->getEndereco()->getEstado(); ?></td>
                                         </tr>                           
                                 </tbody>
                             </table>

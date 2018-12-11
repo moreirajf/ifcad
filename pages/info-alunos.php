@@ -81,14 +81,14 @@
 
         <div id="page-wrapper">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 col-md-12 col-sm-12">
                     <h1 class="page-header">Info Alunos</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Alunos
@@ -107,13 +107,7 @@
                                         <th>Semestre</th>
                                         <th>Bolsista</th>
                                         <th>Usuario</th>
-                                        <th>Cep</th>
-
-                                        <th>Rua</th>
-                                        <th>Numero</th>
-                                        <th>Bairro</th>
-                                        <th>Cidade</th>
-                                        <th>Estado</th>
+                                        <th>Endereço</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
@@ -132,13 +126,8 @@
                                                 else echo "NÃO";
                                             ?></td>
                                             <td><?php echo $meuAlunos[$i]->getUsuario(); ?></td>
-                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getCep(); ?></td>
-                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getRua(); ?></td>
-                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getNumero(); ?></td>
-                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getBairro(); ?></td>
-                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getCidade(); ?></td>
-                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getEstado(); ?></td>
-                                            
+                                        
+                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getRua().", ".$meuAlunos[$i]->getEndereco()->getNumero().", ".$meuAlunos[$i]->getEndereco()->getBairro().", ".$meuAlunos[$i]->getEndereco()->getCidade().", ".$meuAlunos[$i]->getEndereco()->getEstado(); ?></td>                 
                                             <td>
                                             <input type="submit" value="EDITAR">
                                             </td>
