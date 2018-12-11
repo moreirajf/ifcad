@@ -90,18 +90,16 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sagittis erat nec massa iaculis, condimentum gravida massa commodo. 
-                        Praesent elementum risus in dolor sodales, vel rutrum sapien condimentum. Aenean malesuada, est vitae consectetur sollicitudin, 
-                        nunc neque bibendum est, ut blandit tortor augue ut metus. Phasellus ullamcorper est justo, sit amet vehicula nunc malesuada at. 
-                        Morbi elit velit, venenatis et purus nec, commodo porttitor risus. Suspendisse blandit orci ac enim lacinia tincidunt. 
-                        Duis pretium risus non eros consectetur vestibulum
+                        O IFSULDEMINAS - Campus Poços de Caldas tem como marco inicial a expansão da Rede de Educação Profissional, Científica e Tecnológica 
+                        e a criação dos Institutos Federais de Educação, Ciência e Tecnologia. Dessa maneira, o Campus emerge a partir de um Polo de Rede via 
+                        Termo de Cooperação Técnica para o desenvolvimento de ações conjuntas entre o IFSULDEMINAS – Campus Machado e o Município de Poços de Caldas, 
+                        com a interveniência da Fundação de Apoio ao Desenvolvimento e Ensino de Machado (FADEMA) para oferta de cursos técnicos, tendo como alvo a 
+                        comunidade de Poços de Caldas e região.
                     </p>
                     <p>
-                        Loren ipsum dolor sit amet, consectetur adipiscing elit. Proin luctus eleifend vulputate. Nunc pharetra posuere posuere. 
-                        Pellentesque dignissim hendrerit quam ut vestibulum. Donec egestas arcu eget urna aliquam, sit amet consequat risus vestibulum. 
-                        Praesent vitae facilisis nunc. Pellentesque a mollis augue. Nam eleifend diam et urna dignissim, at malesuada dui pellentesque. 
-                        Sed aliquam lacus ac massa auctor, quis luctus risus malesuada. Donec mattis neque ut velit ultrices, non elementum tellus aliquam. 
-                        Nunc vel mollis magna, quis mattis odio. Vestibulum viverra egestas ultricies. Morbi scelerisque pharetra aliquet.
+                        Entretanto, tudo começou em 2008 quando teve início o Centro Tecnológico de Poços de Caldas, como unidade de ensino vinculada à Secretaria 
+                        Municipal de Educação, para oferta de cursos técnicos na modalidade “pós-médio” (ou seja, para aqueles estudantes que concluíram o Ensino Médio), 
+                        oferecendo de imediato os cursos de “Técnico em Meio Ambiente” e “Eletrotécnica - Automação Industrial”.
                     </p> 
                 </div>
             </div>
