@@ -38,7 +38,9 @@
 
 <body>
 <?php
+    $access="professor";
         require_once "../config/include.php";
+       
     ?>
     <div id="wrapper">
 
