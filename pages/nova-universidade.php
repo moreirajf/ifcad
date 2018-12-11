@@ -36,7 +36,10 @@
 </head>
 
 <body>
+<?php require_once("../config/include.php");
+        require_once("../control/institutocontrol.php");
 
+?>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -87,38 +90,57 @@
                 <div class="col-lg-8">
                         <div class="panel panel-default">
                             <form role="form" action="../gravabanco/gravaBancoInstituto.php" method="POST">
+                                   
+                            <?php
+                                    if(isset($_POST["id"])){
+                                        $id=$_POST["id"];
+                                        echo "<input type='hidden' value='$id' name='id'>";
+                                    }
+                                    
+                                    ?>
                                     <div class="form-group">
                                             <label for="input-nome">Nome: </label>
-                                            <input id="input-nome" type="text" name="nome" class="form-control">
+                                            <input id="input-nome" type="text" name="nome" class="form-control" <?php if(isset($instituto))echo "value='".$instituto->getNome()."'";?>>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-rua">Rua: </label>
-                                            <input id="input-rua" type="text" name="rua" class="form-control">
+                                            <input id="input-rua" type="text" name="rua" class="form-control" <?php if(isset($instituto))echo "value='".$instituto->getEndereco()->getRua()."'";?>>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-numero">Número: </label>
-                                            <input id="input-numero" type="text" name="numero" class="form-control">
+                                            <input id="input-numero" type="text" name="numero" class="form-control" <?php if(isset($instituto))echo "value='".$instituto->getEndereco()->getNumero()."'";?>>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-bairro">Bairro: </label>
-                                            <input id="input-bairro" type="text" name="bairro" class="form-control">
+                                            <input id="input-bairro" type="text" name="bairro" class="form-control" <?php if(isset($instituto))echo "value='".$instituto->getEndereco()->getBairro()."'";?>>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-cidade">Cidade: </label>
-                                            <input id="input-cidade" type="text" name="cidade" class="form-control">
+                                            <input id="input-cidade" type="text" name="cidade" class="form-control" <?php if(isset($instituto))echo "value='".$instituto->getEndereco()->getCidade()."'";?>>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-estado">Estado: </label>
-                                            <input id="input-estado" type="text" name="estado" class="form-control">
+                                            <input id="input-estado" type="text" name="estado" class="form-control" <?php if(isset($instituto))echo "value='".$instituto->getEndereco()->getEstado()."'";?>>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-cep">CEP: </label>
-                                            <input id="input-cep" type="text" name="cep" class="form-control">
+                                            <input id="input-cep" type="text" name="cep" class="form-control" <?php if(isset($instituto))echo "value='".$instituto->getEndereco()->getCep()."'";?>>
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" value="Salvar">
                                     </div>
                             </form>
+                            <?php if(isset($_POST["id"])){
+                                        $id=$_POST["id"];
+                                    ?>
+                            <form action="../gravabanco/gravaBancoInstituto.php" method="POST">
+                                <div class="form-group">
+                                        <input type="hidden" value="<?php echo $id;?>" name='id'>
+                                        <input type="hidden" value='remove' name='action'>
+                                        <input type="submit" value="Excluir">
+                                    </div>
+                                </form>
+                                <?php } ?>
                         </div>
                 </div>
             </div>

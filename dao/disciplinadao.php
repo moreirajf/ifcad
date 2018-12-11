@@ -79,6 +79,24 @@
             }
             return $disciplinas;
         }
+        public function getById($id){
+            $connection=ConnectionFactory::getConnection();
+            $stmt = $connection->prepare("SELECT * FROM DISCIPLINA WHERE IDDISCIPLINA=?");
+            $stmt->execute([$id]);
+            $row = $stmt->fetch();
+            $disciplina=new Disciplina();
+            $disciplina->setNome($row["NOME"]);
+            $disciplina->setDescricao($row["DESCRICAO"]);
+            $disciplina->setCargaHoraria($row["CARGAHORARIA"]); 
+            $date = new DateTime($row["HORARIO"]);
+            $result = $date->format('H:i');
+            $disciplina->setHorario($result);
+            $disciplina->setSala($row["SALA"]); 
+            $professor=professorDAO::getById($row["IDPROFESSOR"]);
+            $disciplina->setProfessor($professor);
+            $disciplina->setCurso(cursoDAO::getById($row["IDCURSO"]));
+            return $disciplina;
+        }
 
         public function update(Disciplina $disc){
             $connection=ConnectionFactory::getConnection();

@@ -89,39 +89,46 @@
             <div class="row">
                     <div class="col-lg-8">
                             <form role="form" action="../gravabanco/gravaBancoDisciplina.php" method="post">
+                            <?php
+                                    if(isset($_POST["id"])){
+                                        $id=$_POST["id"];
+                                        echo "<input type='hidden' value='$id' name='id'>";
+                                    }
+                                    
+                                    ?>
                                     <div class="form-group">
                                             <label for="input-nome">Nome: </label>
-                                            <input id="input-nome" type="text" name="nome" class="form-control">
+                                            <input id="input-nome" type="text" name="nome" class="form-control" <?php if(isset($disciplina))echo "value='".$disciplina->getNome()."'";?>>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-descricao">Descrição: </label>
-                                            <input id="input-descricao" type="text" name="descricao" class="form-control">
+                                            <input id="input-descricao" type="text" name="descricao" class="form-control"<?php if(isset($disciplina))echo "value='".$disciplina->getDescricao()."'";?>>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-cargahora">Carga Horária: </label>
-                                            <input id="input-cargahora" type="text" name="cargahora" class="form-control">
+                                            <input id="input-cargahora" type="text" name="cargahora" class="form-control"<?php if(isset($disciplina))echo "value='".$disciplina->getCargaHoraria()."'";?>>
                                     </div>
                                     <div class="form-group">
                                             <label for="select-curso">Curso: </label>
                                             <select id="select-curso" class="form-control" name="select-curso">
                                                 <?php
-                                                getCurso();
+                                                getCurso($disciplina);
                                                 ?>
                                             </select>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-horario">Horário: </label>
-                                            <input id="input-horario" type="time" name="horario" class="form-control">
+                                            <input id="input-horario" type="time" name="horario" class="form-control" <?php if(isset($disciplina))echo "value='".$disciplina->getHorario()."'";?>>
                                     </div>
                                     <div class="form-group">
                                             <label for="input-sala">Sala: </label>
-                                            <input id="input-sala" type="number" name="sala" class="form-control">
+                                            <input id="input-sala" type="number" name="sala" class="form-control" <?php if(isset($disciplina))echo "value='".$disciplina->getSala()."'";?>>
                                     </div>
                                     <div class="form-group">
                                             <label for="select-professor">Professor: </label>
                                             <select id="select-professor" class="form-control" name="select-professor">
                                             <?php
-                                                getProfessores();
+                                                getProfessores($disciplina);
                                                 ?>
                                             </select>
                                     </div>
@@ -129,6 +136,17 @@
                                         <input type="submit" value="Salvar">
                                     </div>
                             </form>
+                            <?php if(isset($_POST["id"])){
+                                        $id=$_POST["id"];
+                                    ?>
+                            <form action="../gravabanco/gravaBancoDisciplina.php" method="POST">
+                                <div class="form-group">
+                                        <input type="hidden" value="<?php echo $id;?>" name='id'>
+                                        <input type="hidden" value='remove' name='action'>
+                                        <input type="submit" value="Excluir">
+                                    </div>
+                                </form>
+                                <?php } ?>
                     </div>
             </div>
             <!-- /.row -->

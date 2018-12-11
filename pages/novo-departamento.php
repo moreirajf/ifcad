@@ -90,19 +90,26 @@
                     <div class="col-lg-8">
                             <div class="panel panel-default">
                                 <form role="form" action="../gravabanco/gravaBancoDepartamento.php" method="POST">
+                                <?php
+                                    if(isset($_POST["id"])){
+                                        $id=$_POST["id"];
+                                        echo "<input type='hidden' value='$id' name='id'>";
+                                    }
+                                    
+                                    ?>
                                         <div class="form-group">
                                                 <label for="input-nome">Nome: </label>
-                                                <input id="input-nome" type="text" name="nome" class="form-control">
+                                                <input id="input-nome" type="text" name="nome" class="form-control" <?php if(isset($departamento))echo "value='".$departamento->getNome()."'";?>>
                                         </div>
                                         <div class="form-group">
                                                 <label for="input-telefone">Telefone: </label>
-                                                <input id="input-telefone" type="tel" name="telefone" class="form-control">
+                                                <input id="input-telefone" type="tel" name="telefone" class="form-control" <?php if(isset($departamento))echo "value='".$departamento->getTelefone()."'";?>>
                                         </div>
                                         <div class="form-group">
                                                 <label for="select-universidade">Universidade: </label>
                                                 <select id="select-universidade" class="form-control" name="select-universidade">
                                                     <?php
-                                                        getInstitutos();
+                                                        getInstitutos($departamento);
                                                     ?>
                                                 </select>
                                             </div>
@@ -110,6 +117,17 @@
                                             <input type="submit" value="Salvar">
                                         </div>
                                 </form>
+                                <?php if(isset($_POST["id"])){
+                                        $id=$_POST["id"];
+                                    ?>
+                            <form action="../gravabanco/gravaBancoDepartamento.php" method="POST">
+                                <div class="form-group">
+                                        <input type="hidden" value="<?php echo $id;?>" name='id'>
+                                        <input type="hidden" value='remove' name='action'>
+                                        <input type="submit" value="Excluir">
+                                    </div>
+                                </form>
+                                <?php } ?>
                             </div>
                     </div>
             </div>

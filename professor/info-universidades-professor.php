@@ -37,7 +37,9 @@
 </head>
 
 <body>
-
+<?php
+        require_once "../config/include.php";
+    ?>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -99,7 +101,7 @@
                         <tbody>
                             <?php for ($i = 0; $i < count($meuInstituto); $i++) { ?>
                                 <tr class="odd gradeX">
-                                    <td><?php echo $meuInstituto[$i]->getInstituto()->getNome(); ?></td>
+                                    <td><?php echo $meuInstituto[$i]->getNome(); ?></td>
                                     <td><?php echo $meuInstituto[$i]->getEndereco()->getRua(); ?></td>
                                     <td><?php echo $meuInstituto[$i]->getEndereco()->getNumero(); ?></td>
                                     <td><?php echo $meuInstituto[$i]->getEndereco()->getBairro(); ?></td>
