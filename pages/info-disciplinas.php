@@ -83,7 +83,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Info Disciplinas</h1>
-                </div>
+                </div></div>
+                <!-- /.col-lg-12 -->
+                <div class="row">
+                <div class="col-lg-12">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Disciplinas
+                            </div>
                 <!-- /.col-lg-12 -->
                 <div class="panel-body">
                     <?php  $minhasDisciplinas = (new disciplinaDao())->select(); ?>
@@ -97,6 +104,8 @@
                                 <th>Horário</th>
                                 <th>Sala</th>
                                 <th>Professor</th>
+                                <th>Ação</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -121,7 +130,7 @@
                     </table>
                 <!-- /.table-responsive -->
                 </div>
-
+                            </div>
 
 
             </div>

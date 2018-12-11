@@ -53,7 +53,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="principal-professor.php">IFCAD - Cursos Aluno</a>
+                <a class="navbar-brand" href="principal-professor.php">IFCAD - Cursos Professor</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -61,12 +61,12 @@
                 
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="contato.html">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="contato.php">
                             <i class="fa fa-fw"><span class="glyphicon glyphicon-envelope"></span></i> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
-                                <a href="../pages/contato.html">Contato</a>
+                                <a href="contato.php">Contato</a>
                             </li>
                         </ul>
                     <!-- /.dropdown-alerts -->
@@ -86,11 +86,35 @@
                     <h1 class="page-header">Cursos Professor</h1>
                 </div>
                 <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
+                    <div class="panel-body">
+                    <?php  
                     
+                    $professor=new Professor();
+                    $professor->setId($_SESSION["iduser"]);
+                    $meusCursos = (new cursoDAO())->selectByProfessor($professor); ?>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Área</th>
+                                <th>Vagas</th>
+                                <th>Departamento</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php for ($i = 0; $i < count($meusCursos); $i++) { ?>
+                                <tr class="odd gradeX">
+                                    <td><?php echo $meusCursos[$i]->getNome(); ?></td>
+                                    <td><?php echo $meusCursos[$i]->getArea(); ?></td>
+                                    <td><?php echo $meusCursos[$i]->getVagas(); ?></td>
+                                    <td><?php echo $meusCursos[$i]->getDepartamento()->getNome(); ?></td>                
+                                </tr>
+                            <?php } ?>                                   
+                        </tbody>
+                    </table>
+                <!-- /.table-responsive -->
+            </div>
                 </div>
             </div>
             <!-- /.row -->

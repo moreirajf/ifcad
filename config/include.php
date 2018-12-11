@@ -35,6 +35,14 @@ if(isset($_SESSION["logged"])){
 				if(isset($_SESSION["admin"]))
 				header("Location: ../pages/index.php");
 		}
+		if($access=="professor"){
+			if(!isset($_SESSION["professor"])){
+				if(isset($_SESSION["admin"]))
+				header("Location: ../pages/index.php");
+				if(isset($_SESSION["aluno"]))
+				header("Location: ../aluno/principal-alunos.php");
+	}
+	}
 		if($access=="admin"){
 			if(!isset($_SESSION["admin"])){
 				if(isset($_SESSION["professor"]))
@@ -44,14 +52,7 @@ if(isset($_SESSION["logged"])){
 
 			}
 	}
-	if($access=="professor"){
-		if(!isset($_SESSION["professor"])){
-			if(isset($_SESSION["admin"]))
-			header("Location: ../pages/index.php");
-			if(isset($_SESSION["aluno"]))
-			header("Location: ../aluno/principal-alunos.php");
-}
-}
+	
 }
 else {
 	if(!isset($login))header("Location: ../pages/login.php");}

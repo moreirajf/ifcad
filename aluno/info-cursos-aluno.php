@@ -66,7 +66,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
-                                <a href="../pages/contato.html">Contato</a>
+                                <a href="contato.php">Contato</a>
                             </li>
                         </ul>
                     <!-- /.dropdown-alerts -->
@@ -77,11 +77,6 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
                         <li><a href="../pages/login.php?end=1"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
@@ -94,12 +89,37 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        <div id="page-wrapper">
+        <<div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Cursos Aluno</h1>
+                    <h1 class="page-header">Curso Aluno</h1>
                 </div>
                 <!-- /.col-lg-12 -->
+                <div class="panel-body">
+                    <?php  
+                        $usuario=$_SESSION["iduser"];
+                    $meucurso = alunoDAO::getById($usuario)->getCurso(); ?>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Departamento</th>
+                                <th>Área</th>
+                                <th>Vagas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <tr class="odd gradeX">
+                                    <td><?php echo $meucurso->getNome(); ?></td>
+                                    <td><?php echo $meucurso->getDepartamento()->getNome(); ?></td>
+                                    <td><?php echo $meucurso->getArea(); ?></td>
+                                    <td><?php echo $meucurso->getVagas(); ?></td>
+                                    </tr>
+                                                 
+                        </tbody>
+                    </table>
+                <!-- /.table-responsive -->
+                </div>
             </div>
             <!-- /.row -->
             <div class="row">
@@ -110,7 +130,6 @@
             <!-- /.row -->
             
         </div>
-        <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->

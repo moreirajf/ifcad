@@ -39,7 +39,6 @@
                                 $aluno->getPassword(),
                                 $aluno->getId()
                             ));
-                            $stmt->debugDumpParams();
         
         }
 

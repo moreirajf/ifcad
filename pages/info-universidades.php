@@ -83,8 +83,14 @@ $access="admin";
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Info Universidades</h1>
-                </div>
+                </div></div>
                 <!-- /.col-lg-12 -->
+                <div class="row">
+                <div class="col-lg-12">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Institutos
+                            </div>
                 <div class="panel-body">
                     <?php  $meusInstitutos = (new institutoDao())->select(); ?>
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -97,6 +103,7 @@ $access="admin";
                                 <th>Cidade</th>
                                 <th>Estado</th>
                                 <th>CEP</th>
+                                <th>Ação</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -121,6 +128,8 @@ $access="admin";
                     </table>
                 <!-- /.table-responsive -->
                 </div>
+                            </div>
+                            </div></div>
             </div>
             <!-- /.row -->
             <div class="row">

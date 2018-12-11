@@ -60,12 +60,12 @@ require_once("../config/include.php");
                 
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="contato.html">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="contato.php">
                             <i class="fa fa-fw"><span class="glyphicon glyphicon-envelope"></span></i> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
-                                <a href="../pages/contato.html">Contato</a>
+                                <a href="contato.php">Contato</a>
                             </li>
                         </ul>
                     <!-- /.dropdown-alerts -->
@@ -76,11 +76,7 @@ require_once("../config/include.php");
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
+                       
                         <li><a href="../pages/login.php?end=1"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
@@ -101,9 +97,8 @@ require_once("../config/include.php");
                 <!-- /.col-lg-12 -->
                 <div class="panel-body">
                     <?php  
-                        session_start();
                         $usuario=$_SESSION["iduser"];
-                    $meuInstituto = array(alunoDAO::getById($usuario)->getCurso()->getDepartamento()->getInstituto()); ?>
+                    $meuInstituto = alunoDAO::getById($usuario)->getCurso()->getDepartamento()->getInstituto(); ?>
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
@@ -117,17 +112,16 @@ require_once("../config/include.php");
                             </tr>
                         </thead>
                         <tbody>
-                            <?php for ($i = 0; $i < count($meuInstituto); $i++) { ?>
                                 <tr class="odd gradeX">
-                                    <td><?php echo $meuInstituto[$i]->getNome(); ?></td>
-                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getRua(); ?></td>
-                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getNumero(); ?></td>
-                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getBairro(); ?></td>
-                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getCidade(); ?></td>
-                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getEstado(); ?></td>
-                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getCep(); ?></td>
+                                    <td><?php echo $meuInstituto->getNome(); ?></td>
+                                    <td><?php echo $meuInstituto->getEndereco()->getRua(); ?></td>
+                                    <td><?php echo $meuInstituto->getEndereco()->getNumero(); ?></td>
+                                    <td><?php echo $meuInstituto->getEndereco()->getBairro(); ?></td>
+                                    <td><?php echo $meuInstituto->getEndereco()->getCidade(); ?></td>
+                                    <td><?php echo $meuInstituto->getEndereco()->getEstado(); ?></td>
+                                    <td><?php echo $meuInstituto->getEndereco()->getCep(); ?></td>
                                 </tr>
-                            <?php } ?>                                   
+                                                 
                         </tbody>
                     </table>
                 <!-- /.table-responsive -->

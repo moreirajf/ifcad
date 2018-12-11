@@ -53,7 +53,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="principal-aluno.php">IFCAD -  Disciplinas Aluno</a>
+                <a class="navbar-brand" href="principal-aluno.php">IFCAD -  Disciplinas do Aluno</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -61,12 +61,12 @@
                 
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="contato.html">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="contato.php">
                             <i class="fa fa-fw"><span class="glyphicon glyphicon-envelope"></span></i> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
-                                <a href="../pages/contato.html">Contato</a>
+                                <a href="contato.php">Contato</a>
                             </li>
                         </ul>
                     <!-- /.dropdown-alerts -->
@@ -77,11 +77,6 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
                         <li><a href="../pages/login.php?end=1"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
@@ -97,14 +92,63 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Disciplinas Aluno</h1>
+                    
+                    <h1 class="page-header">Disciplinas do Aluno</h1>
                 </div>
                 <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    
+                <div class="panel-body">
+                    <?php   
+                    $disciplinas = (new cursaDisciplinaDAO())->selectByAluno($_SESSION["iduser"]); ?>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Disciplina</th>
+                                <th>Carga Horaria</th>
+                                <th>Professor</th>
+                                <th>Prova 1</th>
+                                <th>Prova 2</th>
+                                <th>Trabalho</th>
+                                <th>Lista</th>
+                                <th>Média</th>
+                                <th>Situação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <?php 
+                            for ($i = 0; $i < count($disciplinas); $i++) { 
+                                $disciplina=DisciplinaDAO::getById($disciplinas[$i]["IDDISCIPLINA"]);
+                                $vp1=$disciplinas[$i]["PROVA_1"];
+                                $vp2=$disciplinas[$i]["PROVA_2"];
+                                $vtrabalho=$disciplinas[$i]["TABALHO"];
+                                $vlista=$disciplinas[$i]["LISTA"];
+                                $nota=(floatval($vp1)+floatval($vp2)+floatval($vtrabalho)+floatval($vlista))/4;
+                                $situacao="";
+                                if($nota>=6)$situacao="APROVADO";
+                                else if($nota<6&&$nota>=4)$situacao="EXAME FINAL";
+                                else $situacao="REPROVADO";
+
+                                ?>
+                               
+                                <tr class="odd gradeX">
+                                
+                                    
+                                    <td><?php echo $disciplina->getNome(); ?></td>
+                                    <td><?php echo $disciplina->getCargaHoraria(); ?></td>
+                                    <td><?php echo $disciplina->getProfessor()->getNome(); ?></td>
+                                    <td><?php echo $vp1; ?></td>
+                                    <td><?php echo $vp2; ?></td>
+                                    <td><?php echo $vtrabalho; ?></td>
+                                    <td><?php echo $vlista; ?></td>
+                                    <td><?php echo number_format($nota,2)?></td>
+                                    <td><?php echo $situacao;?></td>
+                                    
+                                </tr>
+                            
+                            <?php } ?>                                   
+                        </tbody>
+                    </table>
+                <!-- /.table-responsive -->
                 </div>
             </div>
             <!-- /.row -->

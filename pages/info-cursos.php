@@ -88,11 +88,12 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <div class="row">
+                <!-- /.panel-heading --><div class="row">
                 <div class="col-lg-12">
-                    Informaçoes sobre os Cursos
-                </div>
-                <!-- /.panel-heading -->
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Cursos
+                            </div>
                 <div class="panel-body">
                     <?php  $meusCursos = (new cursoDao())->select(); ?>
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">

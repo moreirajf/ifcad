@@ -13,7 +13,6 @@
                                 $prof->getPassword(),
                                 intval($prof->getAdministrador())
                             ));
-            $stmt->debugDumpParams();
             $id=$connection->lastInsertId();
             return $id;
         }
@@ -41,7 +40,7 @@
             
         }
 
-        public function getById($id):Professor{
+        public static function getById($id):Professor{
             $connection=ConnectionFactory::getConnection();
             $stmt = $connection->prepare("SELECT * FROM PROFESSOR WHERE IDPROFESSOR=?");
             $stmt->execute([$id]); 
@@ -92,7 +91,6 @@
             $stmt = $connection->prepare("SELECT * FROM PROFESSOR WHERE USUARIO LIKE ? AND SENHA LIKE ?");
             $stmt->execute([$usuario,$senha]); 
             $row = $stmt->fetch();
-            $stmt->debugDumpParams();
             if(!empty($row)){
 
                 $professor=new Professor();

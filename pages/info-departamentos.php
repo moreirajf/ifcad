@@ -84,6 +84,12 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">Info Departamentos</h1>
                 </div>
+                <div class="row">
+                <div class="col-lg-12">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Departamentos
+                            </div>
                 <div class="panel-body">
                     <?php  $meusDepartamentos = (new departamentoDao())->select(); ?>
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -92,7 +98,7 @@
                                 <th>Nome</th>
                                 <th>Telefone</th>
                                 <th>Universidade</th>
-                                <th>Vagas</th>
+                                <th>Ação</th>
                             </tr>
                         </thead>
                         <tbody>

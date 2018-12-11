@@ -64,7 +64,7 @@
                 $_SESSION["admin"]=true;
                 $_SESSION["iduser"]=$professor->getId();
                 $_SESSION["professor"]=true;
-               header("Location: index.php");
+               header("Location: ../professor/principal-professor.php");
             }
             else{
                 session_start();
@@ -112,6 +112,7 @@
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <input type="submit" class="btn btn-lg btn-success btn-block" value="Login">
+                                <?php if(isset($erro)) echo $erro;?>
                             </fieldset>
                         </form>
                     </div>

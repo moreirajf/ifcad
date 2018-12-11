@@ -40,6 +40,7 @@
 <?php
     $access="professor";
         require_once "../config/include.php";
+        
        
     ?>
     <div id="wrapper">
@@ -61,12 +62,12 @@
                 
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="contato.html">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="contato.php">
                             <i class="fa fa-fw"><span class="glyphicon glyphicon-envelope"></span></i> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
-                                <a href="../pages/contato.html">Contato</a>
+                                <a href="contato.php">Contato</a>
                             </li>
                         </ul>
                     <!-- /.dropdown-alerts -->
@@ -86,13 +87,44 @@
                     <h1 class="page-header">Disciplinas Professor</h1>
                 </div>
                 <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    
+                <div class="panel-body">
+                    <?php   
+                    $professor=new Professor();
+                    $professor->setId($_SESSION["iduser"]);
+                    $minhasdiciplinas = (new DisciplinaDAO())->selectByProfessor($professor); ?>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th>Carga Horária</th>
+                                <th>Horário</th>
+                                <th>Sala</th>
+                                <th>Curso</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php for ($i = 0; $i < count($minhasdiciplinas); $i++) { ?>
+                                <tr class="odd gradeX">
+                                    <td><?php echo $minhasdiciplinas[$i]->getNome(); ?></td>
+                                    <td><?php echo $minhasdiciplinas[$i]->getDescricao(); ?></td>
+                                    <td><?php echo $minhasdiciplinas[$i]->getCargaHoraria(); ?></td>
+                                    <td><?php echo $minhasdiciplinas[$i]->getHorario(); ?></td>
+                                    <td><?php echo $minhasdiciplinas[$i]->getSala(); ?></td>
+                                    <td><?php echo $minhasdiciplinas[$i]->getCurso()->getNome(); ?></td>
+                                    <td><form action="list-alunos.php" method="POST">
+                                        <input type="submit" value="DETALHAR">
+                                        <input type="hidden" name="iddisciplina" value="<?php echo $minhasdiciplinas[$i]->getId();?>">
+                                        </form>
+                                    </td>
+                
+                                </tr>
+                            <?php } ?>                                   
+                        </tbody>
+                    </table>
+                <!-- /.table-responsive -->
                 </div>
-            </div>
             <!-- /.row -->
             
         </div>

@@ -61,12 +61,12 @@
                 
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="contato.html">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="contato.php">
                             <i class="fa fa-fw"><span class="glyphicon glyphicon-envelope"></span></i> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
-                                <a href="../pages/contato.html">Contato</a>
+                                <a href="contato.php">Contato</a>
                             </li>
                         </ul>
                     <!-- /.dropdown-alerts -->
@@ -76,12 +76,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
+                    <ul class="dropdown-menu dropdown-user">    
                         <li><a href="../pages/login.php?end=1"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
@@ -94,21 +89,76 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        <div id="page-wrapper">
+       <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Aluno</h1>
+                    <h1 class="page-header">Info Aluno</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Aluno
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <?php  $meuAlunos = array(alunoDao::getById($_SESSION["iduser"])); ?>
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Matricula</th>
+                                        <th>Telefone</th>
+                                        <th>AnoInicio</th>
+                                        <th>Curso</th>
+                                        <th>Semestre</th>
+                                        <th>Bolsista</th>
+                                        <th>Usuario</th>
+                                        <th>Cep</th>
+
+                                        <th>Rua</th>
+                                        <th>Numero</th>
+                                        <th>Bairro</th>
+                                        <th>Cidade</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                     <?php for ($i = 0; $i < count($meuAlunos); $i++) { ?>
+                                        <tr class="odd gradeX">
+                                            <td><?php echo $meuAlunos[$i]->getNome(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getMatricula(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getTelefone();; ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getAnoinicio(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getCurso()->getNome(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getSemestre(); ?></td>
+                                            <td><?php if($meuAlunos[$i]->getBolsista()==1)echo "SIM";
+                                                else echo "NÃO";
+                                            ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getUsuario(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getCep(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getRua(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getNumero(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getBairro(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getCidade(); ?></td>
+                                            <td><?php echo $meuAlunos[$i]->getEndereco()->getEstado(); ?></td>
+                                        </tr>
+                                        <?php } ?>                                   
+                                </tbody>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
                 </div>
+                                     </div>
             </div>
             <!-- /.row -->
-            
+
         </div>
         <!-- /#page-wrapper -->
 

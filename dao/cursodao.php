@@ -38,6 +38,8 @@ class cursoDAO{
         $stmt->execute([$id]); 
         $row = $stmt->fetch();
         $curso=new Curso();
+        $departamento=departamentoDAO::getById($row["IDDEPARTAMENTO"]);
+        $curso->setDepartamento($departamento);
         $curso->setNome($row["NOME"]);
         $curso->setArea($row["AREA"]);
         $curso->setVagas($row["VAGAS"]);
@@ -64,7 +66,23 @@ class cursoDAO{
         return $cursos;
     }
 
-
+    public function selectByProfessor(Professor $professor):array{
+        $connection=ConnectionFactory::getConnection();
+        $stmt = $connection->prepare("SELECT CURSO.IDCURSO as IDCURSO,CURSO.NOME as NOME,CURSO.AREA as AREA,CURSO.VAGAS as VAGAS,CURSO.IDDEPARTAMENTO as IDDEPARTAMENTO FROM CURSO, DISCIPLINA WHERE CURSO.IDCURSO=DISCIPLINA.IDCURSO AND DISCIPLINA.IDPROFESSOR=?");
+        $stmt->execute([$professor->getId()]); 
+        $cursos=array();
+        while ($row = $stmt->fetch()) {
+            $curso=new Curso();
+            $curso->setNome($row["NOME"]);
+            $curso->setArea($row["AREA"]);
+            $curso->setVagas($row["VAGAS"]);
+            $curso->setId($row["IDCURSO"]);
+            $departamento=departamentoDAO::getById($row["IDDEPARTAMENTO"]);
+            $curso->setDepartamento($departamento);
+            array_push($cursos,$curso);
+        }
+        return $cursos;
+    }
 }
 
 

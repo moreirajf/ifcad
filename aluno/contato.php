@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>IFCAD - Universidade Professor</title>
+    <title>IFCAD - Contato</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -37,11 +36,7 @@
 </head>
 
 <body>
-<?php
-    $access="professor";
-        require_once "../config/include.php";
-       
-    ?>
+
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -53,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="principal-professor.php">IFCAD - Universidade Professor</a>
+                <a class="navbar-brand" href="index.php">IFCAD - Contato</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -76,6 +71,7 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
+
             <?php include "menu.php";?>
             <!-- /.navbar-static-side -->
         </nav>
@@ -83,45 +79,17 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Universidade Professor</h1>
+                    <h1 class="page-header">Contato</h1>
                 </div>
                 <!-- /.col-lg-12 -->
-                <div class="panel-body">
-                    <?php  $meuInstituto = (new institutoDao())->select(); ?>
-                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Rua</th>
-                                <th>Numero</th>
-                                <th>Bairro</th>
-                                <th>Cidade</th>
-                                <th>Estado</th>
-                                <th>CEP</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php for ($i = 0; $i < count($meuInstituto); $i++) { ?>
-                                <tr class="odd gradeX">
-                                    <td><?php echo $meuInstituto[$i]->getNome(); ?></td>
-                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getRua(); ?></td>
-                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getNumero(); ?></td>
-                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getBairro(); ?></td>
-                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getCidade(); ?></td>
-                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getEstado(); ?></td>
-                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getCep(); ?></td>
-                
-                                </tr>
-                            <?php } ?>                                   
-                        </tbody>
-                    </table>
-                <!-- /.table-responsive -->
-                </div>
             </div>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                    
+                        <p>Avenida Dirce Pereira Rosa, 300, Jardim Esperança</p>
+                        <p>Poços de Caldas - MG - CEP 37713-100</p>
+                        <p>Fone: (35) 3697-4950</p>
+                        <p>gabinete.pocos@ifsuldeminas.edu.br</p>
                 </div>
             </div>
             <!-- /.row -->

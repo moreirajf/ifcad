@@ -37,7 +37,7 @@
 
         public function selectByProfessor(Professor $prof):array{
             $connection=ConnectionFactory::getConnection();
-            $stmt = $connection->prepare("SELECT * FROM DISCIPLINA WHERE IDPROFESSOR=?");
+            $stmt = $connection->prepare("SELECT * FROM DISCIPLINA WHERE IDPROFESSOR=? ORDER BY NOME");
 
             $stmt->execute([$prof->getId()]);
             $disciplinas=array();
@@ -50,7 +50,7 @@
                 $result = $date->format('H:i');
                 $disciplina->setHorario($result); 
                 $disciplina->setSala($row["SALA"]); 
-                
+                $disciplina->setId($row["IDDISCIPLINA"]);
                 $disciplina->setCurso(cursoDAO::getById($row["IDCURSO"]));
                 $disciplina->setProfessor($prof);
                 array_push($disciplinas,$disciplina);

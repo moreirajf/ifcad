@@ -3,11 +3,13 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <?php if(isset($_SESSION["professor"])){?>
+                            <li>
+                            <a href="../professor/principal-professor.php"><span class="glyphicon glyphicon-wrench"></span> Professor</a>
                         </li>
                         <li class="divider"></li>
+                            <?php }?>
+                        
                         <li><a href="login.php?end=1"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
