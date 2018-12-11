@@ -37,7 +37,11 @@
 </head>
 
 <body>
-
+<?php
+    $access="aluno";
+        require_once "../config/include.php";
+       
+    ?>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -78,7 +82,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../pages/login.php?end=1"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -86,59 +90,7 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
-<<<<<<< HEAD
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href="principal-aluno.php"><span class="glyphicon glyphicon-home"></span><i class="fa fa-fw"></i> Principal</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class=" glyphicon glyphicon-education "></span></i> Universidades<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="info-universidade.php">Informação</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-pencil"></span></i> Cursos<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="info-cursos-aluno.php">Informação</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="fa-edit"></span></i> Disciplinas<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="info-disciplinas-aluno.php">Informações</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>    
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-=======
             <?php include "menu.php";?>
->>>>>>> 7ec24f3c51b80c5842a1d138b0761094d793fad6
             <!-- /.navbar-static-side -->
         </nav>
 

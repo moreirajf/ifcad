@@ -9,9 +9,9 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><span class="glyphicon glyphicon-wrench"></span> Admin</a>
+                            <a href="../pages/index.php"><span class="glyphicon glyphicon-wrench"></span> Admin</a>
                         </li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="../pages/login.php?end=1"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

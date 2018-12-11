@@ -37,9 +37,8 @@
 
 <body>
 <?php 
-    $access="admin";
-
-require_once("../config/include.php");
+        $access="admin";
+        require_once("../config/include.php");
         require_once("../control/institutocontrol.php");
 
 ?>
