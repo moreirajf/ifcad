@@ -22,20 +22,12 @@
     $endereco->setEstado($_POST["estado"]);
     $endereco->setCep(intval($_POST["cep"]));
 
-    $envia = new EnderecoDAO();
-    $idEndereco = $envia->insert($endereco);
-    $endereco->setIdendereco($idEndereco); 
-    
- 
+
     $instituto = new Instituto();
     $instituto->setNome($_POST["nome"]);
     $instituto->setEndereco($endereco);
 
     $envia = new InstitutoDAO();
-    $idInstituto = $envia->insert($instituto);
-    $instituto->setId($idInstituto);
-    echo $idInstituto;
-    echo "<br>";
     
     if(isset($_POST["id"])){
         $instituto->setId($_POST["id"]);
