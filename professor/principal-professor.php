@@ -67,6 +67,7 @@
                         </ul>
                     <!-- /.dropdown-alerts -->
                 </li>
+                
                 <!-- /.dropdown -->
                 <?php include "menu-login.php"; ?>
                 <!-- /.dropdown -->
