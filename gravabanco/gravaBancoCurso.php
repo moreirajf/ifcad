@@ -1,7 +1,18 @@
 <?php
     /**
      * curso
-     */    require_once("../config/include.php");
+     */    $access="admin";
+     require_once("../config/include.php");
+
+
+     if(isset($_POST["action"])){
+        $curso =CursoDAO::getById($_POST["id"]);
+        $envia = new CursoDAO();
+        $envia->delete($curso);
+     }
+     else {
+
+
 
     $curso = new Curso();
     $curso->setNome($_POST["nome"]);
@@ -12,8 +23,20 @@
     $curso->setVagas(intval($_POST["vagas"]));
 
     $envia = new CursoDAO();
-    $idCurso = $envia->insert($curso);
-    $curso->setId($idCurso);
+    
+    if(isset($_POST["id"])){
 
-    header("../pages/info-cursos.php");
+        $curso->setId($_POST["id"]);
+        $envia->update($curso);
+
+    }
+    else {
+
+        $idCurso = $envia->insert($curso);
+       $curso->setId($idCurso);
+
+    }
+
+}
+    header("Location: ../pages/info-cursos.php");
 ?>

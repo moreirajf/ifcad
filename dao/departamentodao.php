@@ -15,6 +15,30 @@ class departamentoDAO{
         return $id;
     }
 
+
+
+    public function update(Departamento $dep){
+        $connection=ConnectionFactory::getConnection();
+        $stmt=$connection->prepare("UPDATE DEPARTAMENTO SET NOME=?,TELEFONE=?,IDINSTITUTO=? WHERE IDDEPARTAMENTO=?");
+
+        $stmt->execute(array($dep->getNome(),
+                            $dep->getTelefone(),
+                            $dep->getInstituto()->getId(),$dep->getId()
+                        ));
+
+    }
+
+    public function delete(Departamento $dep){
+        $connection=ConnectionFactory::getConnection();
+        $stmt=$connection->prepare("DELETE FROM DEPARTAMENTO WHERE IDDEPARTAMENTO=?");
+
+        $stmt->execute(array($dep->getId()
+                        ));
+    }
+
+
+
+
     public static function getById($id):Departamento{
         $connection=ConnectionFactory::getConnection();
         $stmt = $connection->prepare("SELECT * FROM DEPARTAMENTO WHERE IDDEPARTAMENTO=?");

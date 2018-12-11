@@ -1,7 +1,16 @@
 <?php
     /**
      * disciplina
-     */    require_once("../config/include.php");
+     */    $access="admin";
+     require_once("../config/include.php");
+
+
+     if(isset($_POST["action"])){
+        $disciplina =DisciplinaDAO::getById($_POST["id"]);
+        $envia = new DisciplinaDAO();
+        $envia->delete($departamento);
+     }
+     else{
 
     $disciplina = new Disciplina();
     $disciplina->setNome($_POST["nome"]);
@@ -23,9 +32,16 @@
     $disciplina->setProfessor($professor);
 
     $envia = new DisciplinaDAO();
+    if(isset($_POST["id"])){
+        $disciplina->setId($_POST["id"]);
+        $envia->update($disciplina);
+}
+
+    else {
     $idDisciplina = $envia->insert($disciplina);
     $disciplina->setId($idDisciplina); 
-
+}
+}
     header("Location: ../pages/info-disciplinas.php");
 
 ?>

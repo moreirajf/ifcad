@@ -3,7 +3,9 @@
      * endereco
      */
 
-    require_once("../config/include.php");
+    $access="admin";
+     require_once("../config/include.php");
+
 
 
     if(isset($_POST["action"])){
