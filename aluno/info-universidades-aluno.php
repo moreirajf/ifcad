@@ -86,59 +86,7 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
-<<<<<<< HEAD:aluno/info-universidade-aluno.php
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href="principal-alunos.php"><span class="glyphicon glyphicon-home"></span><i class="fa fa-fw"></i> Principal</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class=" glyphicon glyphicon-education "></span></i> Universidades<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="info-universidade-aluno.php">Informação</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="glyphicon glyphicon-pencil"></span></i> Cursos<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="info-cursos-aluno.php">Informação</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw"><span class="fa-edit"></span></i> Disciplinas<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="info-disciplinas-aluno.php">Informações</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>    
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-=======
             <?php include "menu.php";?>
->>>>>>> 7ec24f3c51b80c5842a1d138b0761094d793fad6:aluno/info-universidades-aluno.php
             <!-- /.navbar-static-side -->
         </nav>
 
@@ -148,6 +96,37 @@
                     <h1 class="page-header">Universidade Aluno</h1>
                 </div>
                 <!-- /.col-lg-12 -->
+                <div class="panel-body">
+                    <?php  $meuInstituto = (new institutoDao())->select(); ?>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Rua</th>
+                                <th>Numero</th>
+                                <th>Bairro</th>
+                                <th>Cidade</th>
+                                <th>Estado</th>
+                                <th>CEP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php for ($i = 0; $i < count($meuInstituto); $i++) { ?>
+                                <tr class="odd gradeX">
+                                    <td><?php echo $meuInstituto[$i]->getNome(); ?></td>
+                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getRua(); ?></td>
+                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getNumero(); ?></td>
+                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getBairro(); ?></td>
+                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getCidade(); ?></td>
+                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getEstado(); ?></td>
+                                    <td><?php echo $meuInstituto[$i]->getEndereco()->getCep(); ?></td>
+                
+                                </tr>
+                            <?php } ?>                                   
+                        </tbody>
+                    </table>
+                <!-- /.table-responsive -->
+                </div>
             </div>
             <!-- /.row -->
             <div class="row">
