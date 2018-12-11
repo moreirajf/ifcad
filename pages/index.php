@@ -36,7 +36,10 @@
 </head>
 
 <body>
-
+<?php 
+    $access="admin";
+    require_once("../config/include.php");
+?>
     <div id="wrapper">
 
         <!-- Navigation -->

@@ -37,6 +37,7 @@
 
 <body>
     <?php
+    $access="admin";
         require_once "../config/include.php";
        
     ?>

@@ -102,15 +102,14 @@
         }
 
 
-        public function tryLogin($usuario,$senha):Aluno{
+        public function tryLogin($usuario,$senha){
             $connection=ConnectionFactory::getConnection();
-            $stmt = $connection->query("SELECT * FROM ALUNO WHERE USUARIO LIKE ? AND SENHA LIKE ?");
-            $stmt->execute([$usuario,$senha]); 
+            $stmt = $connection->prepare('SELECT * FROM ALUNO WHERE USUARIO LIKE ? AND SENHA LIKE ?');
+            $stmt->execute(array($usuario,$senha)); 
             $row = $stmt->fetch();
-            
             if(!empty($row)){
                 $aluno=new Aluno();
-                $aluno->setId($id);
+                $aluno->setId($row["IDALUNO"]);
                 $aluno->setNome($row["NOME"]);
                 $aluno->setEmail($row["EMAIL"]);
                 $aluno->setTelefone($row["TELEFONE"]);
@@ -126,7 +125,7 @@
                 $aluno->setCurso($departamento);
                 return $aluno;
             }
-            else return false;
-        }
+            else return null;
+    }
     }
 ?>

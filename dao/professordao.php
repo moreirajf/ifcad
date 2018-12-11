@@ -87,14 +87,15 @@
         }
 
 
-        public function tryLogin($usuario,$senha):Professor{
+        public function tryLogin($usuario,$senha){
             $connection=ConnectionFactory::getConnection();
-            $stmt = $connection->query("SELECT * FROM PROFESSOR WHERE USUARIO LIKE ? AND SENHA LIKE ?");
+            $stmt = $connection->prepare("SELECT * FROM PROFESSOR WHERE USUARIO LIKE ? AND SENHA LIKE ?");
             $stmt->execute([$usuario,$senha]); 
             $row = $stmt->fetch();
-            
+            $stmt->debugDumpParams();
             if(!empty($row)){
-                $professor=Professor();
+
+                $professor=new Professor();
                 $professor->setNome($row["NOME"]);
                 $professor->setEmail($row["EMAIL"]);
                 $professor->setTelefone($row["TELEFONE"]);
@@ -108,9 +109,12 @@
                 $departamento=departamentoDAO::getById($row["IDDEPARTAMENTO"]);
                 $professor->setEndereco($endereco);
                 $professor->setDepartamento($departamento);
-                return $professor;
-            }
-            else return false;
+                
+                
+                
+                return $professor;}
+                else return null;
+    
         }
     }
 ?>

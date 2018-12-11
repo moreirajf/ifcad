@@ -37,16 +37,9 @@
 </head>
 
 <body>
-<<<<<<< HEAD
 <?php
         require_once "../config/include.php";
     ?>
-=======
-    <?php
-        require_once "../config/include.php";
-    ?>
-
->>>>>>> bb67315d52b49293da91328ca78ac1c8107154fa
     <div id="wrapper">
 
         <!-- Navigation -->

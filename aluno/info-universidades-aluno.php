@@ -37,7 +37,10 @@
 </head>
 
 <body>
-
+<?php 
+$access="aluno";
+require_once("../config/include.php");
+?>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -89,7 +92,7 @@
             <?php include "menu.php";?>
             <!-- /.navbar-static-side -->
         </nav>
-
+        
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -97,7 +100,10 @@
                 </div>
                 <!-- /.col-lg-12 -->
                 <div class="panel-body">
-                    <?php  $meuInstituto = (new institutoDao())->select(); ?>
+                    <?php  
+                        session_start();
+                        $usuario=$_SESSION["iduser"];
+                    $meuInstituto = array(alunoDAO::getById($usuario)->getCurso()->getDepartamento()->getInstituto()); ?>
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
@@ -120,7 +126,6 @@
                                     <td><?php echo $meuInstituto[$i]->getEndereco()->getCidade(); ?></td>
                                     <td><?php echo $meuInstituto[$i]->getEndereco()->getEstado(); ?></td>
                                     <td><?php echo $meuInstituto[$i]->getEndereco()->getCep(); ?></td>
-                
                                 </tr>
                             <?php } ?>                                   
                         </tbody>

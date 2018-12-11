@@ -34,50 +34,57 @@
 
 <body>
 <?php 
+    $login=true;
+    $access="all";
+    require_once("../config/include.php");
     
+    if(isset($_GET["end"])){
+        session_destroy();
+        unset($_SESSION);
+    }
 
     $erro="";
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $usuario=$_POST["usuario"];
         $senha=$_POST["senha"];
-
-        if($senha="admin"&&$usuario=="admin"){
+        if($senha=="admin"&&$usuario=="admin"){
             session_start();
             $_SESSION["admin"]=true;
+            $_SESSION["logged"]=true;
             header("Location: index.php");
         }
 
         $dao=new professorDAO();
         $professor=$dao->tryLogin($usuario,$senha);
         
-        if($professor!=false){
+        if($professor!=null){
             if($professor->getAdministrador()){
                 session_start();
+                $_SESSION["logged"]=true;
                 $_SESSION["admin"]=true;
                 $_SESSION["iduser"]=$professor->getId();
                 $_SESSION["professor"]=true;
-                header("Location: index.php");
+               header("Location: index.php");
             }
             else{
                 session_start();
-                $_SESSION["admin"]=false;
+                $_SESSION["logged"]=true;
                 $_SESSION["iduser"]=$professor->getId();
                 $_SESSION["professor"]=true;
-                header("Location: index.php");
+              header("Location: index.php");
             }
-            
         }
         $dao=new alunoDAO();
         $aluno=$dao->tryLogin($usuario,$senha);
-        if($aluno!=false){
+        if($aluno!=null){
                 session_start();
-                $_SESSION["admin"]=true;
+                $_SESSION["logged"]=true;
                 $_SESSION["iduser"]=$aluno->getId();
                 $_SESSION["aluno"]=true;
                 header("Location: index.php");
             }
             else {
-                $erro="Usuário não encontrado";
+                $erro="Usuário não encontrado";               
             } 
    }
 

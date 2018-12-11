@@ -35,6 +35,7 @@
 
 </head>
 <?php
+$access="admin";
     require_once("../config/include.php");
 
 require_once "../control/professorcontrol.php";

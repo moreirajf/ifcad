@@ -23,4 +23,40 @@ spl_autoload_register( function( $class_name ) {
 		require "..".DIRECTORY_SEPARATOR."models".DIRECTORY_SEPARATOR.$file;
 	}
 } );
+
+
+
+
+session_start();
+if(isset($_SESSION["logged"])){
+		if($access=="aluno"){
+			echo "aluno";
+				if(isset($_SESSION["professor"]))
+				header("Location: ../aluno/principal-professor.php");
+				if(isset($_SESSION["admin"]))
+				header("Location: ../pages/principal-index.php");
+		}
+		if($access=="admin"){
+			echo "admin";
+			if(!isset($_SESSION["admin"])){
+				if(isset($_SESSION["professor"]))
+				header("Location: ../professor/principal-professor.php");
+				if(isset($_SESSION["aluno"]))
+				header("Location: ../aluno/principal-alunos.php");
+
+			}
+	}
+	if($access=="professor"){
+		echo "professor";
+		if(!isset($_SESSION["professor"])){
+			if(isset($_SESSION["admin"]))
+			header("Location: ../pages/principal-index.php");
+			if(isset($_SESSION["aluno"]))
+			header("Location: ../aluno/principal-alunos.php");
+}
+}
+}
+else {
+	if(!isset($login))header("Location: ../pages/login.php");}
+
 ?>

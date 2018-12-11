@@ -36,7 +36,9 @@
 </head>
 
 <body>
-<?php require_once("../config/include.php");
+<?php 
+$access="admin";
+require_once("../config/include.php");
         require_once("../control/departamentocontrol.php");
 
 ?>
